@@ -91,7 +91,7 @@ description: "医疗 AI领域的专业调研播报引擎。"
    - **Reusability / How to Use This Paper** *(必须回答至少 2-3 项，严禁泛泛而谈)*:
      - 可复用: [哪些模块/pipeline/评测思路可直接拿来用？]
      - 可迁移: [如果我做 X 方向，这篇能帮我省掉哪一步？]
-     - 不建议复用: [哪些部分与真实场景差距大？]
+     - 复用风险: [哪些部分与真实场景差距大？]
    - **Confidence for Research Use** *(仅限枚举)*:
      - `Safe to build upon` — 多中心/RCT/真实世界验证 + 充分消融 + 可复现
      - `Promising but fragile` — 严格对照但数据有限或缺乏跨机构验证
@@ -162,7 +162,7 @@ description: "医疗 AI领域的专业调研播报引擎。"
    - **Reusability / How to Use This Paper** *(必须回答至少 2-3 项)*:
      - 可复用: [哪些模块/pipeline/评测思路可直接拿来用？]
      - 可迁移: [如果我做 X 方向，这篇能帮我省掉哪一步？]
-     - 不建议复用: [哪些部分与真实场景差距大？]
+     - 复用风险: [哪些部分与真实场景差距大？]
    - **Confidence for Research Use** *(仅限枚举)*:
      - `Safe to build upon` / `Promising but fragile` / `Exploratory only`
    - **Related Context (Non-exhaustive)** *(定位本篇在研究谱系中的位置)*:

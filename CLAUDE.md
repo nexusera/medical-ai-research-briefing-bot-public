@@ -10,7 +10,7 @@
 1. **真实性第一 (Strict Grounding)**: 所有输出必须 100% 来源于 `WebSearch` 返回的客观结果。严禁使用大模型的内部预读知识进行补全或填补空白。
 2. **唯一合法格式 (Mandatory Schema)**: 即使只有一篇文章，也必须严格遵守完整结构化拆解：
    - *Research Question / Method / Data / Key Findings / Limitations*: 5 维论文评阅
-   - *Reusability / How to Use This Paper*: 必须回答至少 2-3 项（可复用/可迁移/不建议复用），严禁泛泛而谈
+   - *Reusability / How to Use This Paper*: 必须回答至少 2-3 项（可复用/可迁移/复用风险），严禁泛泛而谈
    - *Confidence for Research Use*: 仅限枚举 `Safe to build upon` / `Promising but fragile` / `Exploratory only`
    - *跨域科研维度*: Scalability / Deployability / Evaluation Trustworthiness / Clinical Relevance
    - *Related Context*: 定位研究谱系位置（同类/对立/奠基）

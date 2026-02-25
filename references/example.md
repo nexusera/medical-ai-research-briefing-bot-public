@@ -40,7 +40,7 @@
    - **Reusability / How to Use This Paper**:
      - 可复用: NAT 预训练架构可直接复用。
      - 可迁移: 针对 MIMIC-III 构造截断噪声的脚本具有极高的基准复现价值。
-     - 不建议复用: 对于完全手写的非结构化病历，其 NAT 权重可能失效。
+     - 复用风险: 对于完全手写的非结构化病历，其 NAT 权重可能失效。
    - **Confidence for Research Use**: `Promising but fragile`
    - **Related Context (Non-exhaustive)**:
      - Methodologically similar: [Wang et al. (2024) 提出的 Character-level Robust Transformer]
@@ -58,7 +58,7 @@
      - *Limitations*: 规则库维护成本高，难迁移至新型专科环境。
    - **Reusability / How to Use This Paper**:
      - 可复用: 提供的医学字典匹配引擎具有高度落地性。
-     - 不建议复用: 神经模型侧缺乏迁移能力，不推荐作为纯算法基线。
+     - 复用风险: 神经模型侧缺乏迁移能力，不推荐作为纯算法基线。
    - **Confidence for Research Use**: `Exploratory only`
    - **Related Context (Non-exhaustive)**:
      - Methodologically similar: [结合 UMLS 词典的混合 NER 系统]
