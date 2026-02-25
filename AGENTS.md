@@ -1,6 +1,6 @@
 # Agent Workflows & Hooks
 
-本文件定义 Clawbot 在各个关键生命周期节点注入的动态 Hooks，从而将逻辑从单纯的 Prompt 变成 Control-plane 下的程序化拦截。
+本文件定义 Clawbot 在各个关键生命周期节点注入的动态 Hooks，从而将逻辑 from 单纯的 Prompt 变成 Control-plane 下的程序化拦截。
 
 ## UserPromptSubmit Hook
 - **Trigger**: 用户输入指令并请求简报。
@@ -10,6 +10,7 @@
      - **模式 B (近报 / Solution-Oriented Flash)**: 判别依据词如“近报”、“最新思路”、“最优方案”。触发当下模式（短窗口，摒弃历史基线大纲，侧重于抽取模块合体现有最优解）。
   2. 根据意图，组装正确的 `WebSearch` 约束条件（具体法则见 `TOOLS.md`）。
   3. 隐性加载 `SOUL.md` 和 `CLAUDE.md` 进入内存约束，对最终响应格式上锁。
+  4. **强制执行规定范式搜索 (Mandatory Search Execution)**: 无论用户指令是否明确要求“搜索”，Agent 必须自动提取 `sources.md` 中定义的对应方向 Search Template 并通过 `WebSearch` 工具执行检索，严禁空手响应。
 
 ## CodeExecution / PostToolUse Hook
 - **Trigger**: WebSearch 等工具将检索结果流回。

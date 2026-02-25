@@ -29,22 +29,26 @@
 - **评估框架**: 基于证据驱动的合成 (Paper-first Synthesis: 结构化分析、严格标签化、跨论文对齐)
 
 ## 核心发现 (Findings & Evidence Tagging)
-*(不预先设定主题簇，直接进行单篇论文的五要素拆解)*
 
-1. **[论文标题 A](必须是真实超链接)** (来源: [期刊/平台])
-   - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等，超龄基准需标注 Seminal/Baseline]`
+1. **[论文标题 A](必须是真实超链接)** — *作者A等* (来源: [期刊/平台], [年份])
+   - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等]` `[超龄基准标注 Seminal/Baseline]`
+   - **跨域科研维度**: `[Scalability: High/Med/Low]` `[Deployability: High/Med/Low]` `[Evaluation Trustworthiness: High/Med/Low]` `[Clinical Relevance: High/Med/Low]`
    - **结构化分析**: 
      - *Research Question*: [解决什么具体问题]
      - *Method / System*: [采用何种模型、系统或流程]
      - *Data / Evaluation*: [数据规模、对照、指标]
      - *Key Findings*: [明确可复述的结论]
      - *Limitations*: [作者承认的不足或隐含假设]
-     - *Reusability / How to Use This Paper*: [哪些模块可直接复用？/是否值得作为baseline？/工程可迁移性？(必须回答至少2项，严禁泛泛而谈)]
-     - *Research Credibility Level*: [仅限枚举：Level A(Strong Clinical) / Level B(Strong Experimental) / Level C(Exploratory)]
-     - *Related Context (Non-exhaustive)*:
-       - Methodologically similar: [相关同类方法/论文，不超过1句话]
-       - Contrasting approach: [对立或替代路线，不超过1句话]
-       - Foundational reference: [奠基性基线/前置工作，不超过1句话]
+   - **Reusability / How to Use This Paper** *(必须回答至少 2-3 项，严禁泛泛而谈)*:
+     - 可复用: [哪些模块/pipeline/评测思路可直接拿来用？]
+     - 可迁移: [如果我做 X 方向，这篇能帮我省掉哪一步？]
+     - 不建议复用: [哪些部分与真实场景差距大？]
+   - **Confidence for Research Use** *(仅限枚举)*:
+     - `Safe to build upon` / `Promising but fragile` / `Exploratory only`
+   - **Related Context (Non-exhaustive)** *(定位本篇在研究谱系中的位置)*:
+     - Methodologically similar: [同类方法论文+年份，1句话说明差异]
+     - Contrasting approach: [对立路线论文+年份，1句话说明差异]
+     - Foundational reference: [奠基性基线论文+年份]
 *(根据搜查结果列出其余所有篇目 2, 3, 4...)*
 
 ## 交叉分析 (Evidence-driven Synthesis)
@@ -54,6 +58,21 @@
 [详细分析发现中存在的相互支持、相互矛盾之处]
 ### 经独立支持的模式 (Independently Supported Patterns)
 [总结哪些临床/技术模式是被上述多篇论文独立验证的]
+
+## 📝 研究笔记 (Research Notes)
+### 核心认知 (Current Answer)
+[针对本次检索课题得出的阶段性核心结论]
+### 已确证发现 (What We Know)
+- [核心发现结论] — [[来源]](链接)
+### 待解问题 (Open Questions)
+- [ ] [尚未找到确切答案或需要进一步验证的子问题]
+### 信息源矩阵 (Sources Consulted)
+| 来源 (Source) | 核心发现 (Key Finding) | 可信度 (Credibility) | 备注 (Notes) |
+|--------|-------------|-------------|-------|
+### 检索日志 (Search Log)
+[记录 Queries 及命中情况]
+### 下一步行动 (Next Steps)
+[AI 或研究员后续建议行动]
 
 ## 局限性与留白 (Limitations)
 [客观申明本次调研窗口内这些研究依然没有解决的问题]
@@ -66,20 +85,9 @@
 - **注意**: 若启用了 Related-mode 检索，必须在此处（或上方正文中）为>3年的奠基模型/基准研究明确打上 `[Seminal / Baseline]` 的标签。
 - 1. *论文 A 第一作者等*, "[论文标题 A](明确的原文链接)" - DOI/arXiv ID
 - 2. *论文 B 第一作者等*, "[论文标题 B](明确的原文链接)" - DOI/PMID
+```
 
 ---
-## 研究与追踪总结 (Research Tracking)
-
-### 已确证发现 (What We Know)
-- [核心发现结论] — [[来源]](链接)
-
-### 待解问题 (Open Questions)
-- [ ] [该领域/方向仍然未解决的关键问题]
-- [ ] [需要进一步临床试验验证的假设]
-
-### 信息源矩阵 (Sources Consulted)
-| 来源 (Source) | 核心发现 (Key Finding) | 可信度 (Credibility) | 备注 (Notes) |
-|--------|-------------|-------------|-------|
 
 ## ⚡ 2. 轨道 B: 近报模式 (Solution-Oriented Flash - 最优解合成)
 *检索侧重短窗口近期文献，但每篇论文的分析框架与简报完全统一。在完成论文拆解后，额外输出"最优组合解决方案"。*
@@ -103,20 +111,25 @@
 ## 核心发现 (Findings & Evidence Tagging)
 *(与简报模式统一：每篇论文必须完成完整的结构化拆解)*
 
-1. **[论文标题 A](必须是真实超链接)** (来源: [期刊/平台])
+1. **[论文标题 A](必须是真实超链接)** — *作者A等* (来源: [期刊/平台], [年份])
    - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等]`
+   - **跨域科研维度**: `[Scalability: High/Med/Low]` `[Deployability: High/Med/Low]` `[Evaluation Trustworthiness: High/Med/Low]` `[Clinical Relevance: High/Med/Low]`
    - **结构化分析**: 
      - *Research Question*: [解决什么具体问题]
      - *Method / System*: [采用何种模型、系统或流程]
      - *Data / Evaluation*: [数据规模、对照、指标]
      - *Key Findings*: [明确可复述的结论]
      - *Limitations*: [作者承认的不足或隐含假设]
-     - *Reusability / How to Use This Paper*: [哪些模块可直接复用？/是否值得作为baseline？(必须回答至少2项)]
-     - *Research Credibility Level*: [仅限枚举：Level A / Level B / Level C]
-     - *Related Context (Non-exhaustive)*:
-       - Methodologically similar: [不超过1句话]
-       - Contrasting approach: [不超过1句话]
-       - Foundational reference: [不超过1句话]
+   - **Reusability / How to Use This Paper** *(必须回答至少 2-3 项)*:
+     - 可复用: [哪些模块/pipeline/评测思路可直接拿来用？]
+     - 可迁移: [如果我做 X 方向，这篇能帮我省掉哪一步？]
+     - 不建议复用: [哪些部分与真实场景差距大？]
+   - **Confidence for Research Use** *(仅限枚举)*:
+     - `Safe to build upon` / `Promising but fragile` / `Exploratory only`
+   - **Related Context (Non-exhaustive)** *(定位本篇在研究谱系中的位置)*:
+     - Methodologically similar: [同类方法论文+年份，1句话说明差异]
+     - Contrasting approach: [对立路线论文+年份，1句话说明差异]
+     - Foundational reference: [奠基性基线论文+年份]
 *(根据搜查结果列出其余所有篇目 2, 3...)*
 
 ## 最优组合解决方案 (Optimal Solution Synthesis)
@@ -126,6 +139,21 @@
 - **增强模块**: [提炼自文献 B 或 C 的增强策略/约束规则]
 ### 2. 评测与数据策略 (Data & Evaluation Tactics)
 - [提炼各文献中采用的最佳数据处理手段或评测指标]
+
+## 📝 研究笔记 (Research Notes)
+### 核心认知 (Current Answer)
+[针对本次检索课题得出的阶段性核心结论]
+### 已确证发现 (What We Know)
+- [核心发现结论] — [[来源]](链接)
+### 待解问题 (Open Questions)
+- [ ] [尚未找到确切答案或需要进一步验证的子问题]
+### 信息源矩阵 (Sources Consulted)
+| 来源 (Source) | 核心发现 (Key Finding) | 可信度 (Credibility) | 备注 (Notes) |
+|--------|-------------|-------------|-------|
+### 检索日志 (Search Log)
+[记录 Queries 及命中情况]
+### 下一步行动 (Next Steps)
+[AI 或研究员后续建议行动]
 
 ## 方案局限性评估 (Vulnerability Check)
 [基于各篇论文的 Limitations 综合分析这套组合方案潜在的失效点]
