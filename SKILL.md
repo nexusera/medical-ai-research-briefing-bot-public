@@ -113,37 +113,14 @@ Fallback (24h 为 0 时):
 3. **1:1 剖析对齐**: 论文列表中的每一篇真实发现必须有对应的 5 维剖析。
 4. **精确溯源**: 必须使用工具返回的原始 URL。
 
-### 基础回应方式 (Comprehensive Academic - 完整学术版):
+### 支持的回应模式 (Supported Formats):
 
-```markdown
-# 🏥 深度医学综述: [方向]
-## 摘要 (Abstract)
-[概述研究问题、方法、主要发现及结论]
+目前仅支持以下两种核心输出格式（详见 `references/output-formats.md`）：
 
-## 检索策略 (Search Methodology)
-[使用的数据库、布尔查询串、日期范围]
+1. **高级学术综述 (Advanced Academic)**：【默认模式】适用于正式研报、关键决策及全量播报。包含 Methodology (Search Strategy, Inclusion/Exclusion Criteria)、Clustered Findings、Analysis (Synthesis/Contradictions/Confidence) 及 Limitations 等标准学术模块。
+2. **研究笔记 (Research Notes)**：适用于追踪中的长线课题、尚需进一步核实的信息，或“无新增”时期的情况梳理。包含 Current Answer、What We Know (附带置信度) 及 Search Log 等追踪模块。
 
-## 技术深度调研 (In-depth Findings)
-### [技术方向 A]
-[基于 Methods 部分的深度分析与量化数据对比]
-
-## 临床证据质量评价 (Evidence Quality)
-[偏倚风险评估、FDA/NIH 相关监管政策对标]
-
-## 讨论与结论
-[技术脉络总结、未来可增强方向的详细推导]
-
-## 参考文献 (References)
-[详尽的索引列表]
-```
-
-## 自定义深度与格式 (Customization)
-
-用户可以要求不同的深度级别：
-- **简报/快报 (Brief)**：使用 `Executive Briefing` 格式，只看核心价值。
-- **标准 (Standard)**：标准晨报格式，包含技术脉络与优劣思考。
-- **综述 (Comprehensive)**：**默认选项**，使用 `Academic` 格式，包含完整的方法论与偏倚分析。
-- **草稿 (Working Notes)**：适合内部查看检索日志。
+> **核心执行要求**：在生成任何格式时，**强制要求**每一篇提及的文献（如在 Findings 或 References 中）必须附带指向其详情页的独立链接，且标签 (Tags) 应优先使用平台原生 Keywords/Categories（如 `cs.CL`），若无原生再由 AI 提炼补充。
 
 ---
 
@@ -157,9 +134,11 @@ Fallback (24h 为 0 时):
 
 > **推荐指令**：`请使用 medical-ai-research 技能，针对 [方向] 执行 [近48小时/近3天] 的深度研报播报，并将结果发送到当前频道。`
 
-## 故障与降级
-- 医疗顶刊抓取失败时，会自动降级至 `MedRxiv` 或 `BioRxiv` 等预印本平台。
-- 若所有实时源不可达，将基于已有知识库生成“近期重点回顾”。
+## 无结果与零容忍回退协议 (Zero-Result Fallback)
+按照 `methodology.md` 的规定，严禁无端降级和编造：
+1. **时间窗扩张**：若默认 24h/48h 内无匹配更新，依据方向自动扩展时间窗（MDT 扩展至 7 天，LLM/Trial 扩展至 72 小时）。
+2. **如实播报**：若扩张时间窗后依然为 0，必须如实陈述“当前窗口内无高质量研究更新”，然后可切换至 `Research Notes` 格式梳理前期线索。
+3. **真实性第一**：**绝对禁止**“基于已有知识库生成近期回顾”这种容易导致幻觉的兜底行为。
 
 ---
 
