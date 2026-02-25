@@ -33,25 +33,31 @@ description: "针对医疗 AI 领域的专业调研及研报播报机器人。�
 
 ## 工作流概览 (Workflow Overview)
 
-本技能遵循四阶段调研流程：
+本技能遵循 **五步执行管线 + Fallback** 流程（详见 `methodology.md`）：
 
 ```
-阶段 1: 专业信息采集
-  ├─ 检索优先级最高的医学期刊 (Tier 1)
-  ├─ 查询技术类预印本 (arXiv/MedRxiv)
-  └─ 获取工业界实验室动态 (Google/NVIDIA/MSFT)
+Step 1: 24h 全量抓取 (Full Capture)
+  └─ 按 sources.md 权重执行: arXiv → medRxiv → PubMed → 顶会 → 期刊
       ↓
-阶段 2: 证据筛选 (信号优先级)
-  ├─ 基于临床有效性（MDT/Trial）进行加权
-  ├─ 基于方法论创新（LLM/Method）进行加权
-  └─ 剔除低信号（单中心/小样本）或纯商业宣传
+Step 2: 跨源去重 (Cross-Source Dedup)
+  ├─ 强 ID: DOI / PMID / arXiv ID 命中即合并
+  ├─ 标题指纹: 归一化后 fingerprint (阈值 ≥ 0.92)
+  └─ 疑似确认: 第一作者/通讯作者锚点辅助
       ↓
-阶段 3: 领域知识合成
-  └─ 整合文本、图像及结构化数据洞察
+Step 3: 版本升级合并 (Version Merge)
+  └─ preprint + journal 同时出现 → 合并为一条，保留最高等级链接
       ↓
-阶段 4: 结果生成
-  ├─ 按照请求的方向生成独立研报
-  └─ **必须包含窗口内所有相关论文，禁止忽略任何高质量来源**
+Step 4: 全量输出 (Full Output)
+  ├─ 按"方向 → 主题簇 → 论文条目"组织（非 Top-N）
+  └─ 每条包含: 标题 + 贡献 + 类型标签 + 5 维 Expert Insight
+      ↓
+Step 5: 写入 seen_cache (72h 抑制)
+  └─ 同一 canonical_key 72h 内不再播报（版本升级例外）
+
+Fallback (24h 为 0 时):
+  ├─ LLM/Trial: 扩到 72h
+  ├─ MDT: 扩到 7d
+  └─ 仍为 0: 如实陈述，严禁注水
 ```
 
 ## 阶段 1: 专业采集 (Gathering)
