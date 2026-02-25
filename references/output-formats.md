@@ -11,13 +11,13 @@
 *默认模式。适用于正式研报、建立全景认知及涵盖基础与演进。*
 
 ```markdown
-# 🏥 深度医学综述: [研究方向]
-**日期**: YYYY-MM-DD | **覆盖**: [24h/72h/7d 或 Related-mode] | **模式**: Broad Synthesis (简报)
+# 🏥 高级学术综述 (Advanced Academic Review): [研究方向]
+**日期**: YYYY-MM-DD | **覆盖**: [24h/7d 或 Related-mode] | **模式**: Broad Synthesis (简报)
 
-## 摘要 (Abstract)
+## 核心摘要 (Executive Abstract)
 [完整概述检索到的核心动态、主要方法、核心发现及对该领域的影响结论]
 
-## 检索策略与边界 (Methodology)
+## 方法论与检索边界 (Methodology & Search Frontiers)
 ### Search Strategy
 - **数据源与策略**: [记录本次检索使用的数据库及查询串。**必须提供 exact query strings 以供审计**]
 - **时间窗口**: [设定具体时间范围。记录检索发生的**精确服务器时间 (UTC)**。]
@@ -25,10 +25,10 @@
 ### Inclusion/Exclusion Criteria
 - **入/排标准**: [具体说明哪些研究被纳入或剔除]
 
-### Evaluation Framework
-- **评估框架**: 基于证据驱动的合成 (Paper-first Synthesis: 结构化分析、严格标签化、跨论文对齐)
+### 评阅架构 (Evaluative Framework)
+- **评阅架构**: 基于证据驱动的合成 (Paper-first Synthesis: 结构化分析、严格标签化、跨论文对齐)
 
-## 核心发现 (Findings & Evidence Tagging)
+## 实证证据与发现 (Empirical Evidence & Findings)
 
 1. **[论文标题 A](必须是真实超链接)** — *作者A等* (来源: [期刊/平台], [年份])
    - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等]` `[超龄基准标注 Seminal/Baseline]`
@@ -39,7 +39,7 @@
      - *Data / Evaluation*: [数据规模、对照、指标]
      - *Key Findings*: [明确可复述的结论]
      - *Limitations*: [作者承认的不足或隐含假设]
-   - **Reusability / How to Use This Paper** *(必须回答至少 2-3 项，严禁泛泛而谈)*:
+   - **科研复用性与可操作性 (Operational Reusability)** *(必须回答至少 2-3 项，严禁泛泛而谈)*:
      - 可复用: [哪些模块/pipeline/评测思路可直接拿来用？]
      - 可迁移: [如果我做 X 方向，这篇能帮我省掉哪一步？]
      - 复用风险: [哪些部分与真实场景差距大？]
@@ -51,36 +51,36 @@
      - Foundational reference: [奠基性基线论文+年份]
 *(根据搜查结果列出其余所有篇目 2, 3, 4...)*
 
-## 交叉分析 (Evidence-driven Synthesis)
-### 同题多解 (Comparative Analysis)
+## 多维证据合成 (Multidimensional Evidence Synthesis)
+### 竞争性方案分析 (Competitive Analysis of Technical Paths)
 [比较上述论文中“同一问题”的不同解法或架构]
 ### 共识与冲突 (Consensus & Contradictions)
 [详细分析发现中存在的相互支持、相互矛盾之处]
 ### 经独立支持的模式 (Independently Supported Patterns)
 [总结哪些临床/技术模式是被上述多篇论文独立验证的]
 
-## 📝 研究笔记 (Research Notes)
-### 核心认知 (Current Answer)
+## 科研审计追踪 (Research Audit Trace)
+### 现有共识与知识边界 (Consensus & Knowledge Frontiers)
 [针对本次检索课题得出的阶段性核心结论]
-### 已确证发现 (What We Know)
+### 验证性证据 (Verified Empirical Evidence)
 - [核心发现结论] — [[来源]](链接)
-### 待解问题 (Open Questions)
+### 未决科学问题 (Unsolved Scientific Questions)
 - [ ] [尚未找到确切答案或需要进一步验证的子问题]
-### 信息源矩阵 (Sources Consulted)
+### 证据来源矩阵 (Evidence Source Matrix)
 | 来源 (Source) | 核心发现 (Key Finding) | 可信度 (Credibility) | 备注 (Notes) |
 |--------|-------------|-------------|-------|
-### 检索日志 (Search Log)
+### 检索审计溯源 (Search Audit Trail)
 [记录 Queries 及命中情况]
-### 下一步行动 (Next Steps)
+### 后续科研演进建议 (Future Research Trajectories)
 [AI 或研究员后续建议行动]
 
 ## 局限性与留白 (Limitations)
 [客观申明本次调研窗口内这些研究依然没有解决的问题]
 
-## 结论与建议 (Conclusion & Next Steps)
+## 综合判读与演进建议 (Synthesis & Recommendations)
 [给出最终判断与落地建议]
 
-## 参考文献 (References)
+## 核心引证 (Core Citations)
 - [List of detailed references with exact URLs]
 - **注意**: 若启用了 Related-mode 检索，必须在此处（或上方正文中）为>3年的奠基模型/基准研究明确打上 `[Seminal / Baseline]` 的标签。
 - 1. *论文 A 第一作者等*, "[论文标题 A](明确的原文链接)" - DOI/arXiv ID
@@ -93,22 +93,22 @@
 *检索侧重短窗口近期文献，但每篇论文的分析框架与简报完全统一。在完成论文拆解后，额外输出"最优组合解决方案"。*
 
 ```markdown
-# ⚡ 医学前沿近报: [研究方向]
+# ⚡ 高级前沿快报 (Advanced Frontier Flash): [研究方向]
 **日期**: YYYY-MM-DD | **近期聚焦**: [24h/72h/30d] | **模式**: Solution-Oriented Flash (近报)
 
-## 摘要 (Abstract)
+## 核心摘要 (Executive Abstract)
 [概述近期检索到的核心动态、已有思路及其潜在的最优组合方案]
 
-## 检索策略与边界 (Methodology)
+## 方法论与检索边界 (Methodology & Search Frontiers)
 ### Search Strategy
 - **数据源与策略**: [记录本次检索使用的数据库及查询串]
 - **时间窗口**: [设定具体短窗口时间范围，如近 30 天]
 ### Inclusion/Exclusion Criteria
 - **入/排标准**: [具体说明哪些研究被纳入或剔除]
-### Evaluation Framework
-- **评估框架**: 基于证据驱动的合成 (Paper-first Synthesis)
+### 评阅架构 (Evaluative Framework)
+- **评阅架构**: 基于证据驱动的合成 (Paper-first Synthesis)
 
-## 核心发现 (Findings & Evidence Tagging)
+## 实证证据与发现 (Empirical Evidence & Findings)
 *(与简报模式统一：每篇论文必须完成完整的结构化拆解)*
 
 1. **[论文标题 A](必须是真实超链接)** — *作者A等* (来源: [期刊/平台], [年份])
@@ -120,7 +120,7 @@
      - *Data / Evaluation*: [数据规模、对照、指标]
      - *Key Findings*: [明确可复述的结论]
      - *Limitations*: [作者承认的不足或隐含假设]
-   - **Reusability / How to Use This Paper** *(必须回答至少 2-3 项)*:
+   - **科研复用性与可操作性 (Operational Reusability)** *(必须回答至少 2-3 项)*:
      - 可复用: [哪些模块/pipeline/评测思路可直接拿来用？]
      - 可迁移: [如果我做 X 方向，这篇能帮我省掉哪一步？]
      - 复用风险: [哪些部分与真实场景差距大？]
@@ -132,7 +132,7 @@
      - Foundational reference: [奠基性基线论文+年份]
 *(根据搜查结果列出其余所有篇目 2, 3...)*
 
-## 最优组合解决方案 (Optimal Solution Synthesis)
+## 最优技术路径合成 (Optimal Technical Path Synthesis)
 *(此为近报独有模块：基于上方已拆解论文的思路，提纯成一套可行动的综合解决方案)*
 ### 1. 架构/方法组合 (Methodological Synergy)
 - **主体框架**: [提炼自文献 A 的主干模型/方法]
@@ -140,28 +140,28 @@
 ### 2. 评测与数据策略 (Data & Evaluation Tactics)
 - [提炼各文献中采用的最佳数据处理手段或评测指标]
 
-## 📝 研究笔记 (Research Notes)
-### 核心认知 (Current Answer)
+## 科研审计追踪 (Research Audit Trace)
+### 现有共识与知识边界 (Consensus & Knowledge Frontiers)
 [针对本次检索课题得出的阶段性核心结论]
-### 已确证发现 (What We Know)
+### 验证性证据 (Verified Empirical Evidence)
 - [核心发现结论] — [[来源]](链接)
-### 待解问题 (Open Questions)
+### 未决科学问题 (Unsolved Scientific Questions)
 - [ ] [尚未找到确切答案或需要进一步验证的子问题]
-### 信息源矩阵 (Sources Consulted)
+### 证据来源矩阵 (Evidence Source Matrix)
 | 来源 (Source) | 核心发现 (Key Finding) | 可信度 (Credibility) | 备注 (Notes) |
 |--------|-------------|-------------|-------|
-### 检索日志 (Search Log)
+### 检索审计溯源 (Search Audit Trail)
 [记录 Queries 及命中情况]
-### 下一步行动 (Next Steps)
+### 后续科研演进建议 (Future Research Trajectories)
 [AI 或研究员后续建议行动]
 
 ## 方案局限性评估 (Vulnerability Check)
 [基于各篇论文的 Limitations 综合分析这套组合方案潜在的失效点]
 
-## 结论与建议 (Conclusion & Next Steps)
+## 综合判读与演进建议 (Synthesis & Recommendations)
 [给出最终判断与落地建议]
 
-## 参考文献 (References)
+## 核心引证 (Core Citations)
 - 1. *作者等*, "[标题 A](链接)" - DOI/ID (提供主体框架)
 - 2. *作者等*, "[标题 B](链接)" - DOI/ID (提供增强模块)
 ```

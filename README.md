@@ -1,6 +1,6 @@
 # 医疗 AI 研报播报机器人 / Medical AI Research Briefing Bot
 
-针对 MDT、医疗大模型、虚拟临床试验、OCR 噪声四个专业方向的研报技能。支持**简报 (Broad Synthesis)** 与 **近报 (Solution-Oriented Flash)** 双轨输出。**完全符合 Clawdbot 生态标准。**
+针对 MDT、医疗大模型、虚拟临床试验、OCR 噪声四个专业方向的研报技能。支持**简报 (Broad Synthesis)** 与 **近报 (Solution-Oriented Flash)** 双轨输出。**完全符合 Clawdbot 高级学术标准。**
 
 ---
 
