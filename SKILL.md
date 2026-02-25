@@ -69,8 +69,8 @@ description: "医疗 AI领域的专业调研播报引擎。"
 
 ## 检索策略与边界 (Methodology)
 ### Search Strategy
-- **数据源与策略**: [记录本次检索使用的数据库及查询串]
-- **时间窗口**: [设定具体时间范围。若启用 Related 检索则标明 "Related-mode" 并写出"近 3 年优先"约束。]
+- **数据源与策略**: [记录本次检索使用的数据库及查询串。**必须提供 exact query strings 以供审计**]
+- **时间窗口**: [设定具体时间范围。记录检索发生的**精确服务器时间 (UTC)**。]
 
 ### Inclusion/Exclusion Criteria
 - **入/排标准**: [具体说明哪些研究被纳入或剔除]
@@ -82,7 +82,7 @@ description: "医疗 AI领域的专业调研播报引擎。"
 
 1. **[论文标题 A](必须是真实超链接)** — *作者A等* (来源: [期刊/平台], [年份])
    - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等]` `[超龄基准标注 Seminal/Baseline]`
-   - **跨域科研维度**: `[Scalability: High/Med/Low]` `[Deployability: High/Med/Low]` `[Evaluation Trustworthiness: High/Med/Low]` `[Clinical Relevance: High/Med/Low]`
+   - **跨域科研维度**: `[Scalability: High/Med/Low]` `[Deployability: High/Med/Low]` `[Evaluation Trustworthiness: High/Med/Low]` `[Clinical Relevance: High/Med/Low]` `[Reproducibility: Code+Data/Code only/None]`
    - **结构化分析**: 
      - *Research Question*: [解决什么具体问题]
      - *Method / System*: [采用何种模型、系统或流程]
@@ -153,7 +153,7 @@ description: "医疗 AI领域的专业调研播报引擎。"
 
 1. **[论文标题 A](必须是真实超链接)** — *作者A等* (来源: [期刊/平台], [年份])
    - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等]`
-   - **跨域科研维度**: `[Scalability: High/Med/Low]` `[Deployability: High/Med/Low]` `[Evaluation Trustworthiness: High/Med/Low]` `[Clinical Relevance: High/Med/Low]`
+   - **跨域科研维度**: `[Scalability: High/Med/Low]` `[Deployability: High/Med/Low]` `[Evaluation Trustworthiness: High/Med/Low]` `[Clinical Relevance: High/Med/Low]` `[Reproducibility: Code+Data/Code only/None]`
    - **结构化分析**: 
      - *Research Question*: [解决什么具体问题]
      - *Method / System*: [采用何种模型、系统或流程]

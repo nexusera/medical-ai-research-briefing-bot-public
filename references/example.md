@@ -16,8 +16,8 @@
 ## 检索策略与边界 (Methodology)
 
 ### Search Strategy
-- **数据源与策略**: PubMed, arXiv (Queries: "OCR noise medical NLP", "NAT clinical NER")
-- **时间窗口**: Related-mode (no recency window)。执行约束：近 3 年优先 + 来源权重优先。
+- **数据源与策略**: arXiv (Search: "OCR noise medical NLP", "NAT clinical NER") | **Exact Query**: `(abs:"OCR noise" AND abs:medical) OR (abs:NAT AND abs:NER)`
+- **时间窗口**: 2026-02-24 00:00 to 2026-02-25 12:00 (UTC+8) | **Retrieval Time**: 2026-02-25 12:45:10 UTC。执行约束：近 3 年优先 + 来源权重优先。
 
 ### Inclusion/Exclusion Criteria
 - **入选标准**: 包含具体的下游 NLP 任务（如 NER）、包含应对噪声的具体量化指标（F1, CER 数据）。
@@ -29,8 +29,8 @@
 ## 核心发现 (Findings & Evidence Tagging)
 
 1. **[Noise-Aware Named Entity Recognition for Historical/Clinical Documents](https://arxiv.org/abs/2601.07119)** — *Wang et al.* (来源: [arXiv], [2026])
-   - **标签**: `[方向: OCR]` `[机制: 鲁棒性 / 预训练增强]`
-   - **跨域科研维度**: `[Scalability: High]` `[Deployability: Med]` `[Evaluation Trustworthiness: High]` `[Clinical Relevance: High]`
+   - **标签**: `[方向: OCR]` `[机制: NAT / 预训练]` `[超龄基准标注 Seminal/Baseline]`
+   - **跨域科研维度**: `[Scalability: High]` `[Deployability: High]` `[Evaluation Trustworthiness: High]` `[Clinical Relevance: Med]` `[Reproducibility: Code+Data]`
    - **结构化分析**: 
      - *Research Question*: 探索在无外部纠错字典介入下，大模型依靠自身参数抗击字符级 OCR 扰动的可能性。
      - *Method / System*: 提出一种 Noise-Aware Transformer (NAT) 架构，在预训练阶段注入仿真 OCR 失真特征。
@@ -49,7 +49,7 @@
 
 2. **[Hybrid Approaches for NER in Noisy OCR Medical Records](https://journalijsra.com/content/2025/01/21/hybrid-ner-medical)** — *Chen et al.* (来源: [Journal of IJSRA], [2025])
    - **标签**: `[方向: OCR]` `[机制: 规则引擎 / 混合系统]`
-   - **跨域科研维度**: `[Scalability: Low]` `[Deployability: High]` `[Evaluation Trustworthiness: Med]` `[Clinical Relevance: High]`
+   - **跨域科研维度**: `[Scalability: Low]` `[Deployability: High]` `[Evaluation Trustworthiness: Med]` `[Clinical Relevance: High]` `[Reproducibility: Code only]`
    - **结构化分析**: 
      - *Research Question*: 解决医学缩写遭受 OCR 扭曲时神经标注器易崩溃的问题。
      - *Method / System*: 结合医学字典匹配与神经序列标注的混合双轨架构。
