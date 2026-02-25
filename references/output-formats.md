@@ -80,40 +80,62 @@
 ### 信息源矩阵 (Sources Consulted)
 | 来源 (Source) | 核心发现 (Key Finding) | 可信度 (Credibility) | 备注 (Notes) |
 |--------|-------------|-------------|-------|
-| [[期刊/平台名]](平台链接) | [简述该平台贡献的核心信息] | [High/Medium/Low] | [如：高等级 RCT 证据] |
-```
-
----
 
 ## ⚡ 2. 轨道 B: 近报模式 (Solution-Oriented Flash - 最优解合成)
-*聚焦近期思路，寻找落地解法的短窗口定点模式。抛弃长篇论文拆解，直接输出提纯后的组合技。*
+*检索侧重短窗口近期文献，但每篇论文的分析框架与简报完全统一。在完成论文拆解后，额外输出"最优组合解决方案"。*
 
 ```markdown
 # ⚡ 医学前沿近报: [研究方向]
 **日期**: YYYY-MM-DD | **近期聚焦**: [24h/72h/30d] | **模式**: Solution-Oriented Flash (近报)
 
-## 核心挑战与近期聚焦 (Current Bottleneck)
-[一句话总结近期文献都在试图解决的核心痛点]
+## 摘要 (Abstract)
+[概述近期检索到的核心动态、已有思路及其潜在的最优组合方案]
+
+## 检索策略与边界 (Methodology)
+### Search Strategy
+- **数据源与策略**: [记录本次检索使用的数据库及查询串]
+- **时间窗口**: [设定具体短窗口时间范围，如近 30 天]
+### Inclusion/Exclusion Criteria
+- **入/排标准**: [具体说明哪些研究被纳入或剔除]
+### Evaluation Framework
+- **评估框架**: 基于证据驱动的合成 (Paper-first Synthesis)
+
+## 核心发现 (Findings & Evidence Tagging)
+*(与简报模式统一：每篇论文必须完成完整的结构化拆解)*
+
+1. **[论文标题 A](必须是真实超链接)** (来源: [期刊/平台])
+   - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等]`
+   - **结构化分析**: 
+     - *Research Question*: [解决什么具体问题]
+     - *Method / System*: [采用何种模型、系统或流程]
+     - *Data / Evaluation*: [数据规模、对照、指标]
+     - *Key Findings*: [明确可复述的结论]
+     - *Limitations*: [作者承认的不足或隐含假设]
+     - *Reusability / How to Use This Paper*: [哪些模块可直接复用？/是否值得作为baseline？(必须回答至少2项)]
+     - *Research Credibility Level*: [仅限枚举：Level A / Level B / Level C]
+     - *Related Context (Non-exhaustive)*:
+       - Methodologically similar: [不超过1句话]
+       - Contrasting approach: [不超过1句话]
+       - Foundational reference: [不超过1句话]
+*(根据搜查结果列出其余所有篇目 2, 3...)*
 
 ## 最优组合解决方案 (Optimal Solution Synthesis)
-*(基于最新检索到的几篇论文思路，提纯成一套可行动的综合解决方案)*
+*(此为近报独有模块：基于上方已拆解论文的思路，提纯成一套可行动的综合解决方案)*
 ### 1. 架构/方法组合 (Methodological Synergy)
-- **主体框架**: [提炼自最新文献 A 的主干模型/方法]
+- **主体框架**: [提炼自文献 A 的主干模型/方法]
 - **增强模块**: [提炼自文献 B 或 C 的增强策略/约束规则]
 ### 2. 评测与数据策略 (Data & Evaluation Tactics)
 - [提炼各文献中采用的最佳数据处理手段或评测指标]
 
-## 关键模块复用清单 (Actionable Reusability)
-- `[模块名]`: 来源于 *[原文献标题](链接)*，可用于解决 [具体问题]，置信等级评定为 `[Level A/B/C]`。
-- `[数据集/代码]`: 来源于 *[原文献标题](链接)*，可用于复现/评测。
-
 ## 方案局限性评估 (Vulnerability Check)
-[基于各篇论文的 Limitations 综合分析这套缝合方案潜在的失效点]
+[基于各篇论文的 Limitations 综合分析这套组合方案潜在的失效点]
 
-## 参考文献支撑 (Supporting References)
-*(仅列出构成本次“最优解”的核心来源文献)*
-- 1. *作者等*, "[标题 A](标题A链接)" (提供主体框架)
-- 2. *作者等*, "[标题 B](标题B链接)" (提供增强模块)
+## 结论与建议 (Conclusion & Next Steps)
+[给出最终判断与落地建议]
+
+## 参考文献 (References)
+- 1. *作者等*, "[标题 A](链接)" - DOI/ID (提供主体框架)
+- 2. *作者等*, "[标题 B](链接)" - DOI/ID (提供增强模块)
 ```
 
 ---

@@ -1,6 +1,6 @@
 # 医疗 AI 研报播报机器人 / Medical AI Research Briefing Bot
 
-针对 MDT、医疗大模型、虚拟临床试验三个专业方向的每日研报技能。**完全符合 Clawdbot 生态标准。**
+针对 MDT、医疗大模型、虚拟临床试验、OCR 噪声四个专业方向的研报技能。支持**简报 (Broad Synthesis)** 与 **近报 (Solution-Oriented Flash)** 双轨输出。**完全符合 Clawdbot 生态标准。**
 
 ---
 
@@ -26,11 +26,12 @@
 
 ### 手动触发 (Manual Trigger)
 用户可以直接发送简单的关键词：
-- `MDT 简报` / `mdt简报`
-- `医疗大模型简报`
-- `虚拟临床试验简报` / `in-silico简报`
-- `OCR 噪声简报` / `ocr简报`
-- 或者使用自然语言：「帮我做一份 MDT 的每日研报」
+- `MDT 简报` / `mdt简报` — 触发 Broad Synthesis 模式
+- `医疗大模型简报` — 触发 Broad Synthesis 模式
+- `虚拟临床试验简报` / `in-silico简报` — 触发 Broad Synthesis 模式
+- `OCR 噪声简报` / `ocr简报` — 触发 Broad Synthesis 模式
+- `MDT 近报` / `医疗大模型近报` — 触发 Solution-Oriented Flash 模式
+- 或者使用自然语言：「帮我做一份 MDT 的每日研报」/「最新思路综合我要一份近报」
 
 ### 定时推送 (Cron / Scheduled Push)
 在 OpenClaw/Clawdbot 定时任务中，建议将 `payload.message` 设为：
@@ -45,7 +46,7 @@
 ## 3. 信息源与方法论
 - **信息源**: 详见 `references/sources.md` (包含 PubMed, NEJM, Lancet, Nature Medicine, arXiv 等 27 个专业平台)。
 - **分析方法**: 详见 `references/methodology.md` (包含论文脉络分析、优缺点对比及弱点识别逻辑)。
-- **输出格式**: 详见 `references/output-formats.md` (**唯一标准：完整学术版**)。
+- **输出格式**: 详见 `references/output-formats.md` (**双轨模式：简报 Broad Synthesis / 近报 Solution-Oriented Flash**)。
 - **使用示例**: 详见 `references/example.md` (包含基于 2026 年实时数据的 OCR 简报示例)。
 
 ## 4. 自动化部署 (示例)

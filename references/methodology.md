@@ -32,9 +32,13 @@
 - **保留最高等级版本链接**：期刊 > 会议 > 预印本
 - 在条目中标注："✅ 已出现期刊/PMID/DOI（版本升级）"
 
-### Step 4: 全量输出 (Full Output - 非 Top-N)
+### Step 4: 全量输出 (Full Output - 双轨模式)
 
 输出按 **"方向 → 主题簇 → 论文条目"** 组织，而不是按来源堆列表。
+
+**模式选择（见 `AGENTS.md` Hook 路由）：**
+- **简报 (Broad Synthesis)**: 涵盖奠基性概念 + 近 3 年大趋势 + 近 1 年核心落地。用于快速建立全景认知。
+- **近报 (Solution-Oriented Flash)**: 聚焦短窗口近期思路，每篇论文分析框架与简报统一，但额外输出“最优组合解决方案 (Optimal Solution Synthesis)”。
 
 每条至少包含：
 1. **标题 + 一句话贡献** (Headline)
