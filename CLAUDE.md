@@ -1,5 +1,7 @@
 # 项目事实 (Project Facts)
 - **Skill Name**: Medical AI Research Briefing Bot
+- **Mandatory Search Paradigm**: Every instruction MUST trigger a search against the academic databases (PubMed, arXiv, etc.) defined in `sources.md` before responding.
+- **Direct Database Crawling**: Strictly crawl live literature from original databases. Forbidden from relying solely on generic search engine snippets or cached summaries.
 - **Domain Focus**: Medical AI Innovations (Multidisciplinary Teams [MDT], Generative AI in Medicine, In-Silico Trials, OCR/Document Processing in Clinical Settings).
 - **Purpose**: Serve as a high-fidelity, high-signal-to-noise ratio academic surveillance tool.
 - **Output Standard**: Paper-First Synthesis Methodology.
