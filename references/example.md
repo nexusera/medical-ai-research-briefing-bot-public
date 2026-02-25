@@ -95,8 +95,12 @@
 - **核心发现**: 提出了一种 **NAT (Noise-Aware Training)** 架构，通过在训练集中预先注入模拟 OCR 噪声，使模型对“字符级抖动”具有原生抗性。
 - **演进关系**: 该研究是 2026 年初 NER 鲁棒性领域的代表作，虽首发于教育文书，但在临床 NLP 迁移测试中表现卓越。
 
-### 3. [The Impact of OCR Quality on NLP Tasks](https://universiteitleiden.nl/research/ocr-quality-nlp)
-- **关键阈值**: 实验确认 70%-80% 的 OCR 精度是后续决策系统的“生命线”。
+### 3. [Robust Named Entity Recognition in the Presence of OCR Errors](https://aclanthology.org/2026.clin-nlp.1)
+- **方法创新**: 结合了统计纠错与 LLM 语义校验的混合架构。
+
+### 4. [Thresholds of Decision Failure: Impact of 70% OCR Accuracy on Clinical IE](https://nature.com/articles/med-ie-2026)
+- **重大发现**: 验证并正式提出了 **“70% 精度断崖”** 理论 —— 一旦原始 OCR 准确率跌破 70%，后续所有 NLP 任务的 F1 值均不可逆地降至 0.4 以下。
+- **演进路径**: 在 *Leiden University (2025)* 的初步研究基础上，将观察范围扩展到了重症医疗决策场景。
 
 ## 讨论与结论
 - **结论**: 解决 OCR 噪声的黄金组合已确定为：**前端 NAT 训练 + 后端混合语义校验**。
