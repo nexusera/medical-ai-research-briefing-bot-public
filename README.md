@@ -8,14 +8,15 @@
 
 将本目录整体拷贝到你的 Clawdbot workspace 的 `skills/` 目录下：
 ```text
-<workspace>/skills/medical-ai-research/
+<workspace>/skills/medical-ai-research-briefing-bot/
 ├── README.md
 ├── SKILL.md
 ├── _meta.json
 ├── references/
 │   ├── methodology.md   (方法论)
 │   ├── sources.md       (信息源)
-│   └── output-formats.md (输出格式)
+│   ├── output-formats.md (输出格式)
+│   └── example.md       (使用示例)
 └── scripts/
     ├── run_briefing.sh  (运行脚本)
     └── feishu_push.py   (飞书推送脚本)
@@ -34,7 +35,7 @@
 ### 定时推送 (Cron / Scheduled Push)
 在 OpenClaw/Clawdbot 定时任务中，建议将 `payload.message` 设为：
 
-> **推荐指令**：`请使用 medical-ai-research 技能，针对 [方向名称] 执行每日播报并将结果发送到当前频道。`
+> **推荐指令**：`针对 [方向名称] 执行每日播报并将结果发送到当前频道。`
 
 **配置优势**：
 - 符合 Clawdbot 原生生态逻辑，保证执行稳定。
@@ -44,8 +45,8 @@
 ## 3. 信息源与方法论
 - **信息源**: 详见 `references/sources.md` (包含 PubMed, NEJM, Lancet, Nature Medicine, arXiv 等 27 个专业平台)。
 - **分析方法**: 详见 `references/methodology.md` (包含论文脉络分析、优缺点对比及弱点识别逻辑)。
-- **输出格式**: 详见 `references/output-formats.md` (支持快报、标准研报、学术综述等多种深度。**默认使用深度学术综述模式**)。
-- **使用示例**: 详见 `references/example.md` (包含手动触发与定时任务的模拟输出)。
+- **输出格式**: 详见 `references/output-formats.md` (**唯一标准：完整学术版**)。
+- **使用示例**: 详见 `references/example.md` (包含基于 2026 年实时数据的 OCR 简报示例)。
 
 ## 4. 自动化部署 (示例)
 参考 `scripts/run_briefing.sh` 配合同步安装的脚本进行自动化推送：
