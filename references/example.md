@@ -8,7 +8,7 @@
 
 ```markdown
 # 🏥 深度医学综述: OCR 噪声对临床 NLP 任务的影响
-**日期**: 2026-02-25 | **覆盖**: 近 48 小时 | **模式**: Advanced Academic
+**日期**: 2026-02-25 | **覆盖**: Related-mode (no recency window) | **模式**: Advanced Academic
 
 ## 摘要 (Abstract)
 本播报聚焦于近期关于医疗文书数字化质量的核心突破。核心趋势显示，研究已从简单的字符纠错进化为“噪声感知训练 (NAT)”与“混合语义校验”的深度集成，旨在通过预先注入模拟噪声提升模型在极端数字化场景下的鲁棒性。
@@ -18,7 +18,7 @@
 ### Search Strategy
 - **数据源顺序**: arXiv → PubMed → ACL Anthology → Journal of IJSRA
 - **关键查询串**: `("OCR induced noise" OR "OCR error") AND ("NER" OR "Information Extraction")`
-- **时间窗口**: 2026-02-23 至 2026-02-25 (48h 窗口)
+- **时间窗口**: Related-mode (no recency window)。执行约束：近 3 年优先 + 来源权重优先。2026-02-23 至 2026-02-25 (48h 窗口)
 
 ### Inclusion/Exclusion Criteria
 - **入选标准**: 包含具体的下游 NLP 任务（如 NER）、包含应对噪声的具体量化指标（F1, CER 数据）。
@@ -55,6 +55,15 @@
      - *Data / Evaluation*: 跨多中心的综合回顾研究，覆盖包含病历实体与药物事件提取的五大核心任务。
      - *Key Findings*: 明确了 75% 文本提取准确率作为自动临床决策系统的物理“弃用线/人工介入线”。
      - *Limitations*: 仅在印欧语系资料上验证，对表意系统（如中日文手写病历）的退化特征尚不明确。
+
+4. **[Attention Is All You Need for Noise (Hypothetical Baseline)](https://arxiv.org/abs/old_baseline)** (2019, ACL) `[Seminal / Baseline]`
+   - **标签**: `[方向: OCR]` `[机制: 奠基架构 / 注意力抗噪]`
+   - **结构化分析**: 
+     - *Research Question*: 证明早期 Transformer 注意力机制对局部字符级错误的先天免疫力。
+     - *Method / System*: 早期的基于 Self-Attention 的编码器探测任务。
+     - *Data / Evaluation*: WMT 并行语料及人工制造的 10% 随机拼写错误。
+     - *Key Findings*: 首次提出局部注意力头的弥散分布能够平滑局部拼写错误。
+     - *Limitations*: 仅在通用领域测试，未引入复杂的病历专业词汇畸变。
 
 ## 交叉分析 (Evidence-driven Synthesis)
 
