@@ -1,35 +1,82 @@
-# 医疗与 AI 研究信息源清单 (全)
+# 医疗 AI 研报专用信息源 (High-Fidelity Sources)
 
-本清单对用于深度医疗 AI 研究的同行评审、预印本及 AI 驱动平台进行了分类。
+## ⚖️ 总体原则 (General Principles)
+- **预印本优先于期刊延迟**：在 LLM 与 Trial 方向，确保时效性（Speed）。
+- **顶会/顶刊优先于普通期刊**：确保信噪比（SNR）。
+- **医学方向**：临床合法性 (Clinical Validity) > 方法新颖性。
+- **AI 方向**：方法新颖性 > 临床落地。
 
-## 📌 一、医学与临床试验 (同行评审 - 同行内最权威)
-- **PubMed / PMC**: https://pubmed.ncbi.nlm.nih.gov/ (临床与生命科学标准来源)
-- **Cochrane Library**: https://www.cochranelibrary.com/ (循证医学与 Meta 分析标准)
-- **ClinicalTrials.gov**: https://clinicaltrials.gov/ (全球临床试验注册库)
-- **Embase**: https://www.embase.com/ (全面的医学与药理学索引)
-- **Web of Science**: https://www.webofscience.com/ (引文索引与影响力分析)
-- **arXiv**: https://arxiv.org/ (AI, 机器学习, 计算机科学, 数学)
+---
 
-## 📌 二、开源与预印本 (先发优势 - 创新密集区)
+## 🔗 一、MDT (多学科会诊 / 临床决策支持)
+### 一级优先 (Tier 1 - 必须先查)
+- **PubMed**: https://pubmed.ncbi.nlm.nih.gov/ (临床“最终裁决层”)
+    - *检索重点*: `multidisciplinary team AND (AI OR decision support)`
+    - *排序*: 系统综述 / 指南 / 前瞻性研究 > 回顾性研究。
 
-- **medRxiv**: https://www.medrxiv.org/ (医学临床预印本)
-- **bioRxiv**: https://www.biorxiv.org/ (生命科学与基础生物学)
-- **ChemRxiv**: https://chemrxiv.org/ (化学与药物设计)
-- **SSRN**: https://papers.ssrn.com/ (社会科学、法律及健康政策)
+### 二级优先 (Tier 2 - 前沿探索)
+- **medRxiv**: https://www.medrxiv.org/ (新 MDT 系统、AI 辅助决策)
+    - *过滤规则*: 排除无真实临床数据、仅谈概念的文章。
 
-## 📌 三、AI / 机器学习 / 计算科学搜索引擎
-- **Google Scholar**: https://scholar.google.com/ (覆盖面最广的跨领域搜索)
-- **Semantic Scholar**: https://www.semanticscholar.org/ (AI 驱动的引文关系与影响力分析)
+### 优先级总结: `PubMed > medRxiv > 会议`
+*原因：MDT 方案若不进入同行评审期刊，其实操参考价值极低。*
 
-## 📌 四、专门的生命科学 / 医疗 AI 平台
-- **IEEE Xplore**: https://ieeexplore.ieee.org/ (算法、成像、系统设计)
-- **ACM Digital Library**: https://dl.acm.org/ (计算机科学与医疗 AI 交叉)
-- **NIH RePORTER**: https://reporter.nih.gov/ (研究资助情况、项目及相关论文查询)
+---
 
-## 📌 五、评价 / 影响力 / 文献计量工具
-- **JCR (Journal Citation Reports)**: https://clarivate.com/webofsciencegroup/solutions/journal-citation-reports/ (期刊影响因子查询)
-- **Scopus**: https://www.scopus.com/ (引文追踪)
-- **OpenAlex**: https://openalex.org/ (开源学术知识图谱)
+## 🔗 二、计算临床试验 / 虚拟临床试验 (In-silico Trial)
+### 一级优先 (Tier 1 - 分秒必争)
+- **medRxiv**: 针对 `in silico trial`, `virtual clinical trial`, `digital twin`。
+    - *强过滤*: 必须有 Simulation / RWE / Causal 设计。
+- **arXiv**: https://arxiv.org/ (分类: stat.ML, cs.LG, cs.AI)
+    - *关注*: Causal inference, treatment policy, trial simulation.
 
-## 📌 六、临床 AI + 计算医学专库
-- **FDA 数字健康卓越中心**: https://www.fda.gov/medical-devices/digital-health-center-excellence (监管政策与试验要求)
+### 二级优先 (Tier 2 - 方法积淀)
+- **Nature Digital Medicine** / **npj Digital Medicine**
+- **Statistics in Medicine**
+
+### 三级优先 (Tier 3 - 方法论会议)
+- **NeurIPS / ICML / AAAI**
+- **ISPOR** (侧重 RWE 方向)
+
+### 优先级总结: `medRxiv ≈ arXiv > 顶会 > 期刊`
+*原因：虚拟临床试验是方法论快速演进领域，预印本是主战场。*
+
+---
+
+## 🔗 三、医疗大模型 (Clinical LLM / Foundation Models)
+### 一级优先 (Tier 1 - 绝对核心)
+- **arXiv**: (分类: cs.CL, cs.LG, cs.AI)
+    - *强制关键词*: `clinical LLM`, `medical foundation model`, `EHR/EMR automation`.
+
+### 二级优先 (Tier 2 - 医学验证)
+- **bioRxiv**: 重点看：评测、Benchmark、Bias 及安全性研究。
+
+### 三级优先 (Tier 3 - 顶会/顶刊执行确认)
+- **顶会**: NeurIPS, ICML, ICLR, ACL, EMNLP。
+- **顶刊**: Nature Medicine, The Lancet Digital Health, JAMIA。
+
+### 优先级总结: `arXiv > 顶会 > 期刊`
+*原因：大模型创新几乎 90% 优先在 arXiv 亮相。*
+
+---
+
+## 🛡️ 跨方向统一“降噪规则” (Signal-to-Noise Rules)
+### ✅ 优先收录 (Signals)
+1. **多机构数据**: 证明了泛化能力。
+2. **明确实验设计**: 有对照组 (Control) 或消融实验 (Ablation)。
+3. **临床有效性**: 提供了量化的临床指标（如 F1, AUC, CER 降低）。
+
+### ❌ 降级或忽略 (Noise)
+1. **单中心小样本**: 无外部验证且样本量不足。
+2. **纯概念讨论**: 缺乏代码或实证数据的“Vision”类稿件。
+3. **Marketing 式宣传**: 缺乏方法论透明度的商业“赋值”论文。
+
+---
+
+## 🚀 全局检索执行顺序 (Execution Flow)
+本项目遵循 **“预印本抓前沿，期刊做确认，会议判方法价值”** 的原则，Clawdbot 自动执行逻辑：
+1. **arXiv** (LLM / 方法创新捕获)
+2. **medRxiv** (医疗方法 / Trial / MDT 捕获)
+3. **PubMed** (临床合法性确认)
+4. **顶会论文集** (深度贡献评估)
+5. **顶级期刊** (加权背书确认)
