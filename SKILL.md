@@ -128,20 +128,83 @@ Fallback (24h 为 0 时):
 
 详细格式定义参考 `references/output-formats.md`。
 
+### 扩展模式：Related 检索策略（非“最新”，只要“相关”）
+适用场景：用户明确要“相关工作 / 背景脉络 / 对比方法 / 经典基线 / 近年代表作”，而非“近 48h/7d 更新”。用于为 Findings / Contradictions 提供更完整的证据面（补齐代表性方法与公认基线）。
+
+**核心规则（替代时间窗硬约束）:**
+1. **取消硬窗口**: 不使用 `when:48h` 或 `after:2d` 等硬时间窗；目标是“相关”，不是“最新”。
+2. **提质与控量的软约束**: 优先近 3 年（默认），但若该主题的关键奠基工作早于 3 年，允许回溯并**明确标注**为 `Seminal / Baseline`。
+3. **优先高质量信息源**: 遵循 `references/sources.md` 的权重逻辑（weight 越高越优先）；同等相关性下，优先顶会/顶刊/权威索引库条目。
+
+**排序与选择（打分机制）:**
+- **相关性优先级**: 任务匹配度（query intent） > 方法/数据/结论可对照性 > 来源权重 > 年限（近 3 年优先） > 引用/影响力信号（如可获得）。
+- **输出约束（够用即可）**: 每个主题簇补齐 3–7 篇代表性相关文献（含 1–2 篇公认 baseline/seminal + 1–3 篇近 3 年代表作 + 1–2 篇对立/替代路线）。
+
+**输出要求:**
+若启用 Related 检索：
+1. **Methodology 说明**: 必须在 Methodology 模块里明确写明 `Related-mode (no recency window)`，并说明采用“近 3 年优先 + 来源权重优先”的软约束。
+2. **References 打标签**: 在报告的标签或 References 中对超龄的经典文献（>3 年）单独打上 `Seminal / Baseline` 标签，避免被误解为“最新进展”。
+
 ### 核心生成原则 (Core Principles):
 1. **真实性第一 (Strict Grounding)**: 研报内容必须与工具调用结果 **1：1 锚定**。标题、URL 和核心发现必须完全真实。
 2. **全量覆盖**: 必须列出搜索结果中匹配时间窗口（48h/3d）的**所有**真实相关论文。
 3. **5大维度拆解**: 每一篇入选论文必须通过 Research Question, Method, Data, Findings, Limitations 的结构性强制拆解。
 4. **精确溯源**: 必须使用工具返回的原始 URL。
 
-### 支持的回应模式 (Supported Formats):
+### 强制输出模版 (Mandatory Output Template):
 
-目前仅支持以下两种核心输出格式（详见 `references/output-formats.md`）：
+无论进行何种常规检索，**必须且只能**一字不落地使用以下 Markdown 结构进行输出。**绝对禁止**擅自缩减（尤其是不允许缩减结构化分析的 5 大维度），**禁止**用“一句话”随意总结：
 
-1. **高级学术综述 (Advanced Academic)**：【默认模式】适用于正式研报、关键决策及全量播报。包含 Methodology, 单篇结构化发现 (Findings & Evidence Tagging), 交叉分析 (Evidence-driven Synthesis) 及 Limitations 等标准学术模块。
-2. **研究笔记 (Research Notes)**：适用于追踪中的长线课题、尚需进一步核实的信息，或“无新增”时期的情况梳理。包含 Current Answer、What We Know (附带置信度) 及 Search Log 等追踪模块。
+```markdown
+# 🏥 深度医学综述: [研究方向]
+**日期**: YYYY-MM-DD | **覆盖**: [24h/72h/7d 或 Related-mode] | **模式**: Advanced Academic
 
-> **核心执行要求**：在生成任何格式时，**强制要求**每一篇提及的文献必须附带指向其详情页的独立链接。为其打的标签 (Tags) 必须基于单篇内部的论据证据，**绝对禁止**脱离原文进行常识性推测贴签。
+## 摘要 (Abstract)
+[完整概述检索到的核心动态、主要方法、核心发现及对该领域的影响结论]
+
+## 检索策略与边界 (Methodology)
+### Search Strategy
+- **数据源与策略**: [记录本次检索使用的数据库及查询串]
+- **时间窗口**: [设定具体时间范围。若启用 Related 检索则标明 "Related-mode" 并写出"近 3 年优先"约束。]
+
+### Inclusion/Exclusion Criteria
+- **入/排标准**: [具体说明哪些研究被纳入或剔除]
+
+### Evaluation Framework
+- **评估框架**: 基于证据驱动的合成 (Paper-first Synthesis: 结构化分析、严格标签化、跨论文对齐)
+
+## 核心发现 (Findings & Evidence Tagging)
+*(不预先设定主题簇，直接进行单篇论文的五要素拆解)*
+
+1. **[论文标题 A](必须是真实超链接)** (来源: [期刊/平台])
+   - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等，超龄基准需标注 Seminal/Baseline]`
+   - **结构化分析**: 
+     - *Research Question*: [解决什么具体问题]
+     - *Method / System*: [采用何种模型、系统或流程]
+     - *Data / Evaluation*: [数据规模、对照、指标]
+     - *Key Findings*: [明确可复述的结论]
+     - *Limitations*: [作者承认的不足或隐含假设]
+*(根据搜查结果列出其余所有篇目 2, 3, 4...)*
+
+## 交叉分析 (Evidence-driven Synthesis)
+### 同题多解 (Comparative Analysis)
+[比较上述论文中“同一问题”的不同解法或架构]
+### 共识与冲突 (Consensus & Contradictions)
+[详细分析发现中存在的相互支持、相互矛盾之处]
+### 经独立支持的模式 (Independently Supported Patterns)
+[总结哪些临床/技术模式是被上述多篇论文独立验证的]
+
+## 局限性与留白 (Limitations)
+[客观申明本次调研窗口内这些研究依然没有解决的问题]
+
+## 结论与建议 (Conclusion & Next Steps)
+[给出最终判断与落地建议]
+
+## 参考文献 (References)
+- 1. *作者等*, "[标题 A](链接)" - DOI/ID *(大龄基准标注 [Seminal / Baseline])*
+```
+
+> **核心执行红线**：即便发生 Fallback 降级（例如 48h 无发现而转入历史论文检索），**依然必须遵守上述的完整 5 维框架结构！** 绝对不允许简化成“小块新闻短报”模式！
 
 ---
 
