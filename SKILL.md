@@ -102,22 +102,27 @@ Fallback (24h 为 0 时):
 - 无数据支撑的推测性新闻。
 - 与医疗无关的通用 AI 咨询。
 
-## 阶段 3: 知识合成 (Dual-Track Synthesis)
+## 阶段 3：论文级分析 → 证据驱动的合成（Paper-first Synthesis）
 
-**Track A: 方向级认知（用于趋势分析）**
-按四个具体方向进行深度分析：
-- **MDT**：寻找“协作逻辑”与“系统集成”方案。
-- **医疗大模型**：寻找“跨模态对齐”与“情境化临床学习”能力。
-- **虚拟临床试验**：寻找“生物学保真度”与“真实试验对照”数据。
-- **OCR 噪声分析**：寻找“噪声鲁棒性（Robustness）”算法、纠错模型及噪声对临床指标提取的影响数据。
+### 3.1 单篇论文结构化分析（Mandatory）
+对每一篇论文，逐条完成以下拆解：
+- **Research Question**：解决什么具体问题
+- **Method / System**：采用何种模型、系统或流程
+- **Data / Evaluation**：数据规模、对照、指标
+- **Key Findings**：明确可复述的结论
+- **Limitations**：作者承认的不足或隐含假设
 
-**Track B: 论文级认知压缩（用于科研阅读）**
-对于被选入简报的每一篇论文，必须输出以下 5 个核心维度的压缩总结：
-- **研究问题**：该论文希望解决什么具体的临床或技术难题。
-- **方法机制**：使用了什么核心算法、框架或系统架构。
-- **实验设计**：数据来源是什么，基线或对照组设置，以及评测方法。
-- **关键结果**：最核心的发现及量化指标。
-- **局限与风险**：研究本身的不足，或在真实临床落地时潜藏的风险。
+### 3.2 论文标签化（Evidence Tagging）
+在完成单篇分析后，再为论文打标签：
+- 枚举类：MDT / Medical LLM / In-silico / OCR
+- 机制类：协作机制 / 决策支持 / 跨模态 / 鲁棒性 / 真实世界验证
+（标签只能来源于论文内容，不允许推断）
+
+### 3.3 跨论文聚类与对齐（Evidence-driven Synthesis）
+仅在完成全部论文分析后：
+- 比较“同一问题的不同解法”
+- 指出结论一致 / 冲突 / 尚无共识之处
+- 总结哪些模式是被多篇论文**独立支持**的
 
 ## 阶段 4: 结果生成 (Formatting)
 
@@ -126,17 +131,17 @@ Fallback (24h 为 0 时):
 ### 核心生成原则 (Core Principles):
 1. **真实性第一 (Strict Grounding)**: 研报内容必须与工具调用结果 **1：1 锚定**。标题、URL 和核心发现必须完全真实。
 2. **全量覆盖**: 必须列出搜索结果中匹配时间窗口（48h/3d）的**所有**真实相关论文。
-3. **1:1 剖析对齐**: 论文列表中的每一篇真实发现必须有对应的 5 维剖析。
+3. **5大维度拆解**: 每一篇入选论文必须通过 Research Question, Method, Data, Findings, Limitations 的结构性强制拆解。
 4. **精确溯源**: 必须使用工具返回的原始 URL。
 
 ### 支持的回应模式 (Supported Formats):
 
 目前仅支持以下两种核心输出格式（详见 `references/output-formats.md`）：
 
-1. **高级学术综述 (Advanced Academic)**：【默认模式】适用于正式研报、关键决策及全量播报。包含 Methodology (Search Strategy, Inclusion/Exclusion Criteria)、Clustered Findings、Analysis (Synthesis/Contradictions/Confidence) 及 Limitations 等标准学术模块。
+1. **高级学术综述 (Advanced Academic)**：【默认模式】适用于正式研报、关键决策及全量播报。包含 Methodology, 单篇结构化发现 (Findings & Evidence Tagging), 交叉分析 (Evidence-driven Synthesis) 及 Limitations 等标准学术模块。
 2. **研究笔记 (Research Notes)**：适用于追踪中的长线课题、尚需进一步核实的信息，或“无新增”时期的情况梳理。包含 Current Answer、What We Know (附带置信度) 及 Search Log 等追踪模块。
 
-> **核心执行要求**：在生成任何格式时，**强制要求**每一篇提及的文献（如在 Findings 或 References 中）必须附带指向其详情页的独立链接，且标签 (Tags) 应优先使用平台原生 Keywords/Categories（如 `cs.CL`），若无原生再由 AI 提炼补充。
+> **核心执行要求**：在生成任何格式时，**强制要求**每一篇提及的文献必须附带指向其详情页的独立链接。为其打的标签 (Tags) 必须基于单篇内部的论据证据，**绝对禁止**脱离原文进行常识性推测贴签。
 
 ---
 

@@ -27,50 +27,47 @@
 ### Evaluation Framework
 - **评估框架**: 针对应对策略的实证数据进行 5 维专家评价，重在跨模型的能力对比及缺陷发掘。
 
-## 核心发现 (Findings)
+## 核心发现 (Findings & Evidence Tagging)
 
-### 主题簇 1：架构级抗噪增强 (Architectural Robustness)
 1. **[Noise-Aware Named Entity Recognition for Historical/Clinical Documents](https://arxiv.org/abs/2601.07119)** (2026-01-28, arXiv)
-   - **贡献**: 探索大模型在字符级扰动下的原生抗性，打破了“先纠错后识别”的漏斗链条。
-   - **标签**: `cs.CL` `Robustness` `Zero-shot Inference` (Source Keywords)
-   - **认知压缩 (Track B)**: 
-     - *研究问题*: 探索在无外部纠错字典介入下，大模型依靠自身参数抗击字符级 OCR 扰动的可能性。
-     - *方法机制*: 提出一种 Noise-Aware Transformer (NAT) 架构，在预训练阶段注入仿真 OCR 失真特征。
-     - *实验设计*: 使用 MIMIC-III 病历子集，人工注入 0%~20% 的截断与形近字噪声进行对比测试。
-     - *关键结果*: 相比先纠错后识别的漏斗链条，端到端架构在重度噪声场景下实体召回率提升 11%。
-     - *局限与风险*: 对于像素极低的扫描件，单一 NAT 模型的抗扰动能力仍存在天花板。
+   - **标签**: `[方向: OCR]` `[机制: 鲁棒性 / 预训练增强]`
+   - **结构化分析**: 
+     - *Research Question*: 探索在无外部纠错字典介入下，大模型依靠自身参数抗击字符级 OCR 扰动的可能性。
+     - *Method / System*: 提出一种 Noise-Aware Transformer (NAT) 架构，在预训练阶段注入仿真 OCR 失真特征。
+     - *Data / Evaluation*: 使用 MIMIC-III 病历子集，人工注入 0%~20% 的截断与形近字噪声进行对比测试。
+     - *Key Findings*: 相比先纠错后识别的漏斗链条，端到端架构在重度噪声场景下实体召回率提升 11%。
+     - *Limitations*: 作者承认对于像素极低的扫描件，单一 NAT 模型的抗扰动能力仍存在天花板。
 
-### 主题簇 2：混合系统与基准确立 (Hybrid Systems & Benchmarking)
 2. **[Hybrid Approaches for NER in Noisy OCR Medical Records](https://journalijsra.com/content/2025/01/21/hybrid-ner-medical)** (2025, Journal of IJSRA)
-   - **贡献**: 结合神经模型与确定性规则，解决 EHR 专有缩写识别失效问题。
-   - **标签**: `Medical Informatics` `Named Entity Recognition` `EHR` (Source Keywords)
-   - **认知压缩 (Track B)**: 
-     - *研究问题*: 解决纯神经序列标注在遇到诸如 'q.d.' 等医疗缩写遭到 OCR 扭曲时易发生的崩溃问题。
-     - *方法机制*: 结合确定性的医学字典匹配与神经序列标注的混合双轨架构。
-     - *实验设计*: 基于 5k 份经过历史归化的 EHR 强噪声语料进行标注与评估测试。
-     - *关键结果*: 将含有重度残缺的重金属处方短实体提取 F1 值从 0.72 提升至 0.85。
-     - *局限与风险*: 混合规则库的硬编码性质导致其极难被无缝迁移至非英语或新型专科环境。
+   - **标签**: `[方向: OCR]` `[机制: 规则引擎 / 混合系统]`
+   - **结构化分析**: 
+     - *Research Question*: 解决纯神经序列标注在遇到诸如 'q.d.' 等医疗缩写遭到 OCR 扭曲时易发生的崩溃问题。
+     - *Method / System*: 结合确定性的医学字典匹配与神经序列标注的混合双轨架构。
+     - *Data / Evaluation*: 基于 5k 份经过历史归化的 EHR 强噪声语料进行标注与评估测试。
+     - *Key Findings*: 将含有重度残缺的重金属处方短实体提取 F1 值从 0.72 提升至 0.85。
+     - *Limitations*: 混合规则库的硬编码性质导致其极难被无缝迁移至非英语或新型专科环境。
 
 3. **[The Impact of OCR Quality on NLP Tasks: A Systematic Study](https://universiteitleiden.nl/research/ocr-quality-nlp)** (2025, Leiden Univ Rep)
-   - **贡献**: 首次系统性量化了临床 NLP 系统因 OCR 衰减而导致“决策失效”的临界阈值。
-   - **标签**: `OCR Quality Evaluation` `Clinical NLP pipelines` (Source Keywords)
-   - **认知压缩 (Track B)**: 
-     - *研究问题*: 试图量化临床 NLP 系统因基础 OCR 文本质量衰减而导致下游“决策失效”的确切临界阈值。
-     - *方法机制*: 开发了一个系统性评价基准，将连续噪声平滑衰减并绘制为临床判准退化曲线。
-     - *实验设计*: 跨多中心的综合回顾研究，覆盖包含病历实体与药物事件提取的五大核心任务。
-     - *关键结果*: 明确了 75% 文本提取准确率作为自动临床决策系统的物理“弃用线/人工介入线”。
-     - *局限与风险*: 仅在印欧语系资料上验证，对表意系统（如中日文手写病历）的退化特征尚不明确。
+   - **标签**: `[方向: OCR]` `[机制: 质量评估 / 决策准则]`
+   - **结构化分析**: 
+     - *Research Question*: 试图量化临床 NLP 系统因基础 OCR 文本质量衰减而导致下游“决策失效”的确切临界阈值。
+     - *Method / System*: 开发了一个系统性评价基准，将连续噪声平滑衰减并绘制为临床判准退化曲线。
+     - *Data / Evaluation*: 跨多中心的综合回顾研究，覆盖包含病历实体与药物事件提取的五大核心任务。
+     - *Key Findings*: 明确了 75% 文本提取准确率作为自动临床决策系统的物理“弃用线/人工介入线”。
+     - *Limitations*: 仅在印欧语系资料上验证，对表意系统（如中日文手写病历）的退化特征尚不明确。
 
-## 交叉分析 (Analysis)
+## 交叉分析 (Evidence-driven Synthesis)
 
-### 综合推导 (Synthesis)
-过去 48 小时的研究表明，孤立地优化 OCR 引擎或孤立地优化 NLP 模型均已遭遇瓶颈。行业的主流范式正转向**端到端的噪声感知（End-to-End Noise Awareness）**：即在 NLP 的预训练阶段，将 OCR 常见的错认模式直接注入为特征分布。
+### 同题多解 (Comparative Analysis)
+在面对 OCR 噪声扰乱 NLP 下游任务这一“同一问题”时，论文 1 采取了“参数内化”的激进路线（依靠模型预训练吸收噪声），而论文 2 采取了“工程兜底”的保守路线（依靠外挂确定性规则进行修补）。
 
-### 矛盾与差异 (Contradictions)
-*Hybrid Approaches* (论文 2) 坚信确定性规则兜底的必要性，而 *Noise-Aware NER* (论文 1) 则试图用大规模数据让模型自行吸收噪声特征。在重度污染的场景下，两者的实战收益仍存在争议。
+### 共识与冲突 (Consensus & Contradictions)
+- **共识**: 两篇系统级论文（1 和 2）独立确证了传统纯神经 NER 模型（如基础版 BERT）在处理含噪声的极简医疗缩写时极其脆弱。
+- **冲突/争议点**: 论文 2 坚信确定性规则兜底的必要性，而论文 1 则试图用大规模数据让模型自行吸收噪声特征。在重度污染场景下，两者的实战经济收益仍存争论。
 
-### 置信度评估 (Confidence Assessment)
-目前关于鲁棒性的评价（High Confidence）多建立在人为注入噪声（Simulated noise）的数据集上，对于真实世界破损、手写混合的临床卷宗，其真实抵御能力仍需保留适度怀疑评估（Medium Confidence）。
+### 经独立支持的模式 (Independently Supported Patterns)
+- **端到端退化曲线量化**: （论文 3 提出，论文 1 的对比组验证）纯管道式“先强纠错后抽取”在医疗场景已显疲态。
+- **阈值介入必要性**: 作为最佳实践，超过 20%-25% 的高强度噪声域（依据论文3的 75% 准确率红线），纯自动系统必须交还人类监控。
 
 ## 局限性与留白 (Limitations)
 本次观察窗口内的研究**未能有效解决**：多语种/小语种在遭遇 OCR 失真时的模型对齐问题；以及对于临床极长文本，错误传播如何引发宏观语义幻觉的问题。
