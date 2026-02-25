@@ -33,27 +33,33 @@
 1. **[Noise-Aware Named Entity Recognition for Historical/Clinical Documents](https://arxiv.org/abs/2601.07119)** (2026-01-28, arXiv)
    - **贡献**: 探索大模型在字符级扰动下的原生抗性，打破了“先纠错后识别”的漏斗链条。
    - **标签**: `cs.CL` `Robustness` `Zero-shot Inference` (Source Keywords)
-   - **专家洞察**: 
-     - *解决痛点*: 降低了外部繁琐纠错字典的依赖，避免了第一阶段错误向第二阶段的级联传播。
-     - *局限性/Cons*: 对于像素极低的扫描件，单一 NAT 模型的抗扰动能力仍存在天花板。
-     - *SOTA 对比*: 较之传统 BERT-based NER，在模拟 20% 噪声环境下展现出极强的零样本迁移能力。
+   - **认知压缩 (Track B)**: 
+     - *研究问题*: 探索在无外部纠错字典介入下，大模型依靠自身参数抗击字符级 OCR 扰动的可能性。
+     - *方法机制*: 提出一种 Noise-Aware Transformer (NAT) 架构，在预训练阶段注入仿真 OCR 失真特征。
+     - *实验设计*: 使用 MIMIC-III 病历子集，人工注入 0%~20% 的截断与形近字噪声进行对比测试。
+     - *关键结果*: 相比先纠错后识别的漏斗链条，端到端架构在重度噪声场景下实体召回率提升 11%。
+     - *局限与风险*: 对于像素极低的扫描件，单一 NAT 模型的抗扰动能力仍存在天花板。
 
 ### 主题簇 2：混合系统与基准确立 (Hybrid Systems & Benchmarking)
 2. **[Hybrid Approaches for NER in Noisy OCR Medical Records](https://journalijsra.com/content/2025/01/21/hybrid-ner-medical)** (2025, Journal of IJSRA)
    - **贡献**: 结合神经模型与确定性规则，解决 EHR 专有缩写识别失效问题。
    - **标签**: `Medical Informatics` `Named Entity Recognition` `EHR` (Source Keywords)
-   - **专家洞察**: 
-     - *解决痛点*: 纯神经模型在处理诸如 'q.d.'（每日一次）等关键医疗缩写遭遇 OCR 强扭曲时极易发生语义崩塌，本方案解决了该致命缺陷。
-     - *局限性/Cons*: 混合规则库的硬编码性质导致其难以被无缝迁移至非英语环境。
-     - *SOTA 对比*: 与纯神经方案相比，将重度重金属处方中的 NER F1 值从 0.72 提升至 0.85。
+   - **认知压缩 (Track B)**: 
+     - *研究问题*: 解决纯神经序列标注在遇到诸如 'q.d.' 等医疗缩写遭到 OCR 扭曲时易发生的崩溃问题。
+     - *方法机制*: 结合确定性的医学字典匹配与神经序列标注的混合双轨架构。
+     - *实验设计*: 基于 5k 份经过历史归化的 EHR 强噪声语料进行标注与评估测试。
+     - *关键结果*: 将含有重度残缺的重金属处方短实体提取 F1 值从 0.72 提升至 0.85。
+     - *局限与风险*: 混合规则库的硬编码性质导致其极难被无缝迁移至非英语或新型专科环境。
 
 3. **[The Impact of OCR Quality on NLP Tasks: A Systematic Study](https://universiteitleiden.nl/research/ocr-quality-nlp)** (2025, Leiden Univ Rep)
    - **贡献**: 首次系统性量化了临床 NLP 系统因 OCR 衰减而导致“决策失效”的临界阈值。
    - **标签**: `OCR Quality Evaluation` `Clinical NLP pipelines` (Source Keywords)
-   - **专家洞察**: 
-     - *解决痛点*: 为临床 NLP 系统的工程部署提供了一个清晰的“弃用线/人工介入线”。
-     - *局限性/Cons*: 仅在印欧语系资料上验证，针对表意文字（如中文病历）的退化曲线尚不明确。
-     - *SOTA 对比*: 量化维度超越了前期仅讨论误差传播概率的初步研究。
+   - **认知压缩 (Track B)**: 
+     - *研究问题*: 试图量化临床 NLP 系统因基础 OCR 文本质量衰减而导致下游“决策失效”的确切临界阈值。
+     - *方法机制*: 开发了一个系统性评价基准，将连续噪声平滑衰减并绘制为临床判准退化曲线。
+     - *实验设计*: 跨多中心的综合回顾研究，覆盖包含病历实体与药物事件提取的五大核心任务。
+     - *关键结果*: 明确了 75% 文本提取准确率作为自动临床决策系统的物理“弃用线/人工介入线”。
+     - *局限与风险*: 仅在印欧语系资料上验证，对表意系统（如中日文手写病历）的退化特征尚不明确。
 
 ## 交叉分析 (Analysis)
 
