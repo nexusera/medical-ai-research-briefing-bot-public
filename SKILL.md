@@ -49,9 +49,7 @@ Step 1: 24h 全量抓取 (Full Capture)
   └─ 按 sources.md 权重执行: arXiv → medRxiv → PubMed → 顶会 → 期刊
       ↓
 Step 2: 跨源去重 (Cross-Source Dedup)
-  ├─ 强 ID: DOI / PMID / arXiv ID 命中即合并
-  ├─ 标题指纹: 归一化后 fingerprint (阈值 ≥ 0.92)
-  └─ 疑似确认: 第一作者/通讯作者锚点辅助
+  └─ 强 ID: DOI / PMID / arXiv ID 命中即合并
       ↓
 Step 3: 版本升级合并 (Version Merge)
   └─ preprint + journal 同时出现 → 合并为一条，保留最高等级链接

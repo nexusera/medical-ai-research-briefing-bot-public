@@ -19,13 +19,11 @@
 
 ### Step 2: 跨源去重 (Cross-Source Dedup)
 
-由于同一研究可能同时出现在 arXiv + PubMed 等多个平台，必须执行三层去重：
+由于同一研究可能同时出现在 arXiv + PubMed 等多个平台，需按强 ID 进行去重：
 
 | 层级 | 方法 | 规则 |
 |------|------|------|
 | **强 ID** | DOI / PMID / arXiv ID | 命中即合并 |
-| **标题指纹** | 标题归一化后做 fingerprint | 近似匹配阈值 ≥ 0.92 |
-| **疑似确认** | 第一作者 / 通讯作者锚点 | 辅助确认，避免误杀不同研究 |
 
 ### Step 3: 版本升级合并 (Version Upgrade Merge)
 
