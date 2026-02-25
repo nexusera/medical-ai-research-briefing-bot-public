@@ -20,7 +20,6 @@
 ## 方法论与检索边界 (Methodology & Search Frontiers)
 ### Search Strategy
 - **数据源与策略**: [记录本次检索使用的数据库及查询串。**必须提供 exact query strings 以供审计**]
-- **时间窗口**: [设定具体时间范围。记录检索发生的**精确服务器时间 (UTC)**。]
 
 ### Inclusion/Exclusion Criteria
 - **入/排标准**: [具体说明哪些研究被纳入或剔除]
@@ -102,7 +101,6 @@
 ## 方法论与检索边界 (Methodology & Search Frontiers)
 ### Search Strategy
 - **数据源与策略**: [记录本次检索使用的数据库及查询串]
-- **时间窗口**: [设定具体短窗口时间范围，如近 30 天]
 ### Inclusion/Exclusion Criteria
 - **入/排标准**: [具体说明哪些研究被纳入或剔除]
 ### 评阅架构 (Evaluative Framework)

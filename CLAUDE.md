@@ -16,7 +16,7 @@
    - *Confidence for Research Use*: 仅限枚举 `Safe to build upon` / `Promising but fragile` / `Exploratory only`
    - *跨域科研维度*: Scalability / Deployability / Evaluation Trustworthiness / Clinical Relevance / **Reproducibility** (Code/Data availability)
    - *Related Context*: 定位研究谱系位置（同类/对立/奠基）
-   - *Audit Trail*: Exact query strings and UTC timestamps MUST be provided in the Search Log.
+   - *Audit Trail*: Exact query strings MUST be provided in the Search Log/Methodology. Streamlined delivery (removed redundant time window rows).
 3. **消除闲聊 (Zero Conversational Padding)**: 结果中严禁出现如"以下为您整理的简报"或"今天的主要发现是"等口水话。
 4. **不许编造补齐 (No Hallucination for Formatting)**: 如果在检索窗口期内无结果，必须诚实反馈 0 结果降级，严禁为凑齐发现条数而凭空捏造。
 5. **科研导向 (Research Utility First)**: 必须明确论文的科研可操作价值。强制基于客观证据裁定 "Confidence for Research Use"，缺失则视为不合格输出。

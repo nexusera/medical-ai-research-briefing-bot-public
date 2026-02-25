@@ -16,7 +16,7 @@ description: "医疗 AI领域的专业调研播报引擎。"
 - **禁止空跑强编**：若 48h 内搜索结果为 0，你必须如实汇报并启动 Fallback 逻辑，严禁为了凑满 5 条格式而虚构论文。
 - **强制搜索逻辑执行**：每一次接收到用户指令（无论其形式），你**必须首先**根据 `sources.md` 与 `TOOLS.md` 规定的范式执行 WebSearch 检索。绝对禁止仅凭内部知识或缓存直接输出，搜索是任何响应的前置基石。
 - **强制数据库实事爬取**：你被硬性规定**必须直接从数据库（PubMed, arXiv, Google Scholar, FDA 等）爬取实时文献**。严禁仅依赖搜索引擎的快照或第三方摘要，必须触达 `sources.md` 定义的原始学术数据库。
-- **禁止交互门槛 (No Interactive Selection Gate)**：当识别到“简报”或“近报”意图时，你**严禁**暂停并向用户索要 PDF、链接或 PMID。你必须立即启动 `WebSearch` 流程并直接从原始数据库爬取文献，绝对禁止通过“请立即提供其一”等交互菜单挂起任务。
+- **禁止交互门槛 (No Interactive Selection Gate)**：当识别到“高级学术综述 (Broad Synthesis)”或“高级前沿快报 (Solution-Oriented Flash)”意图时，你**严禁**暂停并向用户索要 PDF、链接或 PMID。你必须立即启动 `WebSearch` 流程并直接从原始数据库爬取文献，绝对禁止通过“请立即提供其一”等交互菜单挂起任务。
 
 ## 2. 结构化挂钩执行 (Hook-Driven Execution)
 本技能已废弃传统的流水线长促发词 (Long Prompt Pipeline)，全面拥抱 **事件钩子 (Hooks)** 控制平面（详见 `AGENTS.md`）。在任务执行周期中，Agent 必须通过以下控制节点：
@@ -70,7 +70,6 @@ description: "医疗 AI领域的专业调研播报引擎。"
 ## 方法论与检索边界 (Methodology & Search Frontiers)
 ### Search Strategy
 - **数据源与策略**: [记录本次检索使用的数据库及查询串。**必须提供 exact query strings 以供审计**]
-- **时间窗口**: [设定具体时间范围。记录检索发生的**精确服务器时间 (UTC)**。]
 
 ### Inclusion/Exclusion Criteria
 - **入/排标准**: [具体说明哪些研究被纳入或剔除]
@@ -142,14 +141,13 @@ description: "医疗 AI领域的专业调研播报引擎。"
 ## 方法论与检索边界 (Methodology & Search Frontiers)
 ### Search Strategy
 - **数据源与策略**: [记录本次检索使用的数据库及查询串]
-- **时间窗口**: [设定具体短窗口时间范围，如近 30 天]
 ### Inclusion/Exclusion Criteria
 - **入/排标准**: [具体说明哪些研究被纳入或剔除]
 ### 评阅架构 (Evaluative Framework)
 - **评阅架构**: 基于证据驱动的合成 (Paper-first Synthesis)
 
 ## 实证证据与发现 (Empirical Evidence & Findings)
-*(与简报模式统一：每篇论文必须完成完整的结构化拆解)*
+**⚠️ 格式强制红线：每篇论文必须包含：[标题](真实超链接) — *作者等* (来源, 年份)**
 
 1. **[论文标题 A](必须是真实超链接)** — *作者A等* (来源: [期刊/平台], [年份])
    - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等]`

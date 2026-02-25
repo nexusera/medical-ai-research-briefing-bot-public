@@ -17,7 +17,7 @@
 
 ### Search Strategy
 - **数据源与策略**: arXiv (Search: "OCR noise medical NLP", "NAT clinical NER") | **Exact Query**: `(abs:"OCR noise" AND abs:medical) OR (abs:NAT AND abs:NER)`
-- **时间窗口**: 2026-02-24 00:00 to 2026-02-25 12:00 (UTC+8) | **Retrieval Time**: 2026-02-25 12:45:10 UTC。执行约束：近 3 年优先 + 来源权重优先。
+- **Retrieval Time**: 2026-02-25 12:45:10 UTC。执行约束：近 3 年优先 + 来源权重优先。
 
 ### Inclusion/Exclusion Criteria
 - **入选标准**: 包含具体的下游 NLP 任务（如 NER）、包含应对噪声的具体量化指标（F1, CER 数据）。
@@ -99,4 +99,80 @@
 ## 核心引证 (Core Citations)
 - 1. *Wang et al.*, "[Noise-Aware NER](https://arxiv.org/abs/2601.07119)" - arXiv:2601.07119
 - 2. *Chen et al.*, "[Hybrid Approaches for NER](https://journalijsra.com/content/2025/01/21/hybrid-ner-medical)" - DOI/10.xxxx/ijsra.2025
+```
+
+---
+
+### 使用示例 2: 高级前沿快报 (Advanced Frontier Flash - Mode B)
+**指令**: `医疗大模型 快报`
+
+**AI 输出内容 (Solution-Oriented Flash 近报格式)**：
+
+```markdown
+# ⚡ 高级前沿快报 (Advanced Frontier Flash): 医疗大语言模型
+**日期**: 2026-02-25 | **近期聚焦**: 30d (直连实时抓取) | **模式**: Solution-Oriented Flash (近报)
+
+## 核心摘要 (Executive Abstract)
+近 30 天医疗大模型的研究信号高度聚集于：1. RAG 在特定专科（如肝损伤、肿瘤）的纵深决策支持；2. 基于本体/知识图谱的闭环幻觉抑制；3. 医教场景下的生成质量评测。当前的共识是：纯参数扩容已进入边际效用递减期，“领域知识底座 + 精准检索增强 (RAG) + 动态结构化评测”构成当前最优落地路径。
+
+## 方法论与检索边界 (Methodology & Search Frontiers)
+### Search Strategy
+- **数据源与策略**: PubMed, arXiv (Direct Live Crawling) | **Exact Query**: `(medical OR clinical) AND (LLM OR RAG OR hallucination) AND "decision support"`
+- **入/排标准**: 必须具备 PMID 或 arXiv ID；排除无量化评估的纯观点性综述。
+
+### 评阅架构 (Evaluative Framework)
+- **评阅架构**: 基于证据驱动的合成 (Paper-first Synthesis)
+
+## 实证证据与发现 (Empirical Evidence & Findings)
+
+1. **[Development of RAG-based LLM for drug-induced liver injury](https://doi.org/10.1097/hc9.0000000000000451)** — *Smith et al.* (来源: [Hepatology Communications], [2026])
+   - **标签**: `[方向: 临床决策支持]` `[机制: RAG + BioBERT 检索 + 分段加权]`
+   - **跨域科研维度**: `[Scalability: High]` `[Deployability: High]` `[Evaluation Trustworthiness: High]` `[Clinical Relevance: High]` `[Reproducibility: Code+Data]`
+   - **结构化分析**: 
+     - *Research Question*: 验证 RAG 架构能否将 LiverTox 静态知识库转化为动态临床决策工具。
+     - *Method / System*: 构建 LiverTox 向量索引（8759 片段），采用“药物优先 + 语义加权”双规检索。
+     - *Key Findings*: 相比 Zero-shot，RAG 架构显著提升了临床可答性，尤其在罕见药物性肝损伤 (DILI) 判断上表现优异。
+     - *Limitations*: 验证题量有限，尚需跨机构真实病历验证。
+   - **科研复用性与可操作性 (Operational Reusability)**:
+     - 可复用: 药物优先检索加权逻辑可直接迁移至院内处方审核系统。
+     - 复用风险: 对非 LiverTox 覆盖的非典型肝毒性药物识别不足。
+   - **Confidence for Research Use**: `Safe to build upon`
+
+2. **[Ontology-grounded knowledge graphs for mitigating hallucinations](https://doi.org/10.1016/j.jbi.2025.104728)** — *Li et al.* (来源: [Journal of Biomedical Informatics], [2025])
+   - **标签**: `[方向: 幻觉抑制]` `[机制: Ontology + GraphRAG]`
+   - **跨域科研维度**: `[Scalability: Med]` `[Deployability: Med]` `[Evaluation Trustworthiness: High]` `[Clinical Relevance: High]` `[Reproducibility: Code only]`
+   - **结构化分析**: 
+     - *Research Question*: 探索知识图谱语义约束能否实质性降低医疗 LLM 的事实性幻觉。
+     - *Method / System*: 采用 RDF/OWL 临床本体作为 Grounding 层，通过对齐节点进行逻辑校验。
+     - *Key Findings*: 准确性与溯源性显著提升，证据链可解释。
+   - **科研复用性与可操作性 (Operational Reusability)**:
+     - 可复用: 本体对齐中间件适合高风险用药场景。
+     - 复用风险: 对动态变化的非标准化指南适应性较慢。
+   - **Confidence for Research Use**: `Promising but fragile`
+
+*(此处省略其余篇目分析...)*
+
+## 最优技术路径合成 (Optimal Technical Path Synthesis)
+### 1. 架构/方法组合 (Methodological Synergy)
+- **主体框架**: Clinical-RAG（以院内指南/药典/路径为主知识源）
+- **增强模块**: Ontology/Knowledge Graph Grounding（降低术语漂移与逻辑幻觉）
+- **安全护栏**: MDT-style 结构化输出（强制要求：建议 + 证据引证 + 不确定性标注）
+### 2. 评测与数据策略 (Data & Evaluation Tactics)
+- **核心策略**: 建立动态评测基座（BioPulse-QA 模型），重点考核“引用可追溯率”与“人工驳回率”。
+- **落地单元**: 建议从“肿瘤 MDT 会前研报自动生成”切入，由专家评审。
+
+## 科研审计追踪 (Research Audit Trace)
+### 实证洞察与待解假设 (Empirical Insights & Hypotheses)
+- [ ] **待验证项**: 针对肿瘤 MDT 的大规模临床终点（而非合成病例）前瞻验证。
+- [ ] **核心假设**: 医疗 LLM 短期竞争壁垒在于“工程闭环质量”与“逻辑解释力”。
+### 技术演进趋势预警 (Technical Inflexion Point Radar)
+- **核心词云**: `Knowledge-Grounding` `GraphRAG` `Expert-Review`
+- **活跃机构**: Harvard Medical School, Mayo Clinic, Tsinghua University
+
+## 综合判读与演进建议 (Synthesis & Recommendations)
+当前最稳妥的落地路线是：先在低风险域（医教/会前摘要）通过“强约束 RAG”建立信任，同步构建动态评测体系，严禁一步到位执行全自动决策。
+
+## 核心引证 (Core Citations)
+- 1. *Smith et al.*, "[DILI RAG-LLM](https://doi.org/10.1097/hc9.0000000000000451)" - Hepatology Communications, 2026
+- 2. *Li et al.*, "[Ontology-GraphRAG](https://doi.org/10.1016/j.jbi.2025.104728)" - JBI, 2025
 ```
