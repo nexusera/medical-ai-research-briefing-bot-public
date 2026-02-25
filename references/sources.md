@@ -1,82 +1,172 @@
-# 医疗 AI 研报专用信息源 (High-Fidelity Sources)
+# Medical AI Research Briefing – Sources Configuration
 
-## ⚖️ 总体原则 (General Principles)
-- **预印本优先于期刊延迟**：在 LLM 与 Trial 方向，确保时效性（Speed）。
-- **顶会/顶刊优先于普通期刊**：确保信噪比（SNR）。
-- **医学方向**：临床合法性 (Clinical Validity) > 方法新颖性。
-- **AI 方向**：方法新颖性 > 临床落地。
+本文件定义 Medical AI Research Briefing Bot 的**唯一信息源配置**。
+遵循原则：**信噪比优先、前沿优先、临床合法性分层确认**。
 
 ---
 
-## 🔗 一、MDT (多学科会诊 / 临床决策支持)
-### 一级优先 (Tier 1 - 必须先查)
-- **PubMed**: https://pubmed.ncbi.nlm.nih.gov/ (临床“最终裁决层”)
-    - *检索重点*: `multidisciplinary team AND (AI OR decision support)`
-    - *排序*: 系统综述 / 指南 / 前瞻性研究 > 回顾性研究。
+## Global Rules
 
-### 二级优先 (Tier 2 - 前沿探索)
-- **medRxiv**: https://www.medrxiv.org/ (新 MDT 系统、AI 辅助决策)
-    - *过滤规则*: 排除无真实临床数据、仅谈概念的文章。
-
-### 优先级总结: `PubMed > medRxiv > 会议`
-*原因：MDT 方案若不进入同行评审期刊，其实操参考价值极低。*
+* 权重（weight）范围：1–10，越高代表越优先
+* 预印本用于"前沿捕捉"，期刊用于"结论确认"
+* 不在本文件中的来源，默认不抓取
 
 ---
 
-## 🔗 二、计算临床试验 / 虚拟临床试验 (In-silico Trial)
-### 一级优先 (Tier 1 - 分秒必争)
-- **medRxiv**: 针对 `in silico trial`, `virtual clinical trial`, `digital twin`。
-    - *强过滤*: 必须有 Simulation / RWE / Causal 设计。
-- **arXiv**: https://arxiv.org/ (分类: stat.ML, cs.LG, cs.AI)
-    - *关注*: Causal inference, treatment policy, trial simulation.
+## I. MDT（多学科会诊 / 临床决策支持）
 
-### 二级优先 (Tier 2 - 方法积淀)
-- **Nature Digital Medicine** / **npj Digital Medicine**
-- **Statistics in Medicine**
+### Primary Sources
 
-### 三级优先 (Tier 3 - 方法论会议)
-- **NeurIPS / ICML / AAAI**
-- **ISPOR** (侧重 RWE 方向)
+* name: PubMed
+  url: https://pubmed.ncbi.nlm.nih.gov/
+  weight: 10
+  role: 临床最终确认层
 
-### 优先级总结: `medRxiv ≈ arXiv > 顶会 > 期刊`
-*原因：虚拟临床试验是方法论快速演进领域，预印本是主战场。*
+* name: medRxiv
+  url: https://www.medrxiv.org/
+  weight: 8
+  role: 新型 MDT 系统与临床决策方法首发
 
----
+### Secondary Sources
 
-## 🔗 三、医疗大模型 (Clinical LLM / Foundation Models)
-### 一级优先 (Tier 1 - 绝对核心)
-- **arXiv**: (分类: cs.CL, cs.LG, cs.AI)
-    - *强制关键词*: `clinical LLM`, `medical foundation model`, `EHR/EMR automation`.
+* name: AMIA Proceedings
+  url: https://amia.org/education-events/amia-conferences
+  weight: 6
+  role: 医疗信息学会议论文
 
-### 二级优先 (Tier 2 - 医学验证)
-- **bioRxiv**: 重点看：评测、Benchmark、Bias 及安全性研究。
+### Search Template (MDT)
 
-### 三级优先 (Tier 3 - 顶会/顶刊执行确认)
-- **顶会**: NeurIPS, ICML, ICLR, ACL, EMNLP。
-- **顶刊**: Nature Medicine, The Lancet Digital Health, JAMIA。
-
-### 优先级总结: `arXiv > 顶会 > 期刊`
-*原因：大模型创新几乎 90% 优先在 arXiv 亮相。*
+* "multidisciplinary team"
+* "clinical decision support system"
+* "AI-assisted MDT"
+* "multidisciplinary oncology decision"
 
 ---
 
-## 🛡️ 跨方向统一“降噪规则” (Signal-to-Noise Rules)
-### ✅ 优先收录 (Signals)
-1. **多机构数据**: 证明了泛化能力。
-2. **明确实验设计**: 有对照组 (Control) 或消融实验 (Ablation)。
-3. **临床有效性**: 提供了量化的临床指标（如 F1, AUC, CER 降低）。
+## II. In-silico Trial / 计算临床试验
 
-### ❌ 降级或忽略 (Noise)
-1. **单中心小样本**: 无外部验证且样本量不足。
-2. **纯概念讨论**: 缺乏代码或实证数据的“Vision”类稿件。
-3. **Marketing 式宣传**: 缺乏方法论透明度的商业“赋值”论文。
+### Primary Sources
+
+* name: medRxiv
+  url: https://www.medrxiv.org/
+  weight: 9
+  role: 虚拟临床试验与真实世界证据前沿
+
+* name: arXiv
+  url: https://arxiv.org/
+  weight: 9
+  categories: [stat.ML, cs.LG, cs.AI]
+  role: 建模、仿真、因果推断方法
+
+### Secondary Sources (Journals)
+
+* name: Nature Digital Medicine
+  url: https://www.nature.com/natdigimed/
+  weight: 7
+
+* name: npj Digital Medicine
+  url: https://www.nature.com/npjdigitalmed/
+  weight: 7
+
+* name: Statistics in Medicine
+  url: https://onlinelibrary.wiley.com/journal/10970258
+  weight: 6
+
+### Search Template (In-silico Trial)
+
+* "in silico trial"
+* "virtual clinical trial"
+* "digital twin healthcare"
+* "treatment policy simulation"
+* "causal inference clinical trial"
 
 ---
 
-## 🚀 全局检索执行顺序 (Execution Flow)
-本项目遵循 **“预印本抓前沿，期刊做确认，会议判方法价值”** 的原则，Clawdbot 自动执行逻辑：
-1. **arXiv** (LLM / 方法创新捕获)
-2. **medRxiv** (医疗方法 / Trial / MDT 捕获)
-3. **PubMed** (临床合法性确认)
-4. **顶会论文集** (深度贡献评估)
-5. **顶级期刊** (加权背书确认)
+## III. Medical Large Language Models（医疗大模型）
+
+### Primary Sources
+
+* name: arXiv
+  url: https://arxiv.org/
+  weight: 10
+  categories: [cs.CL, cs.LG, cs.AI]
+  role: 医疗大模型首发源
+
+### Secondary Sources
+
+* name: bioRxiv
+  url: https://www.biorxiv.org/
+  weight: 7
+  role: 模型评测、安全性与医学验证
+
+### Conference Sources
+
+* name: NeurIPS
+  url: https://papers.nips.cc/
+  weight: 8
+
+* name: ICML
+  url: https://proceedings.mlr.press/
+  weight: 8
+
+* name: ICLR
+  url: https://openreview.net/group?id=ICLR.cc
+  weight: 8
+
+* name: ACL / EMNLP
+  url: https://aclanthology.org/
+  weight: 7
+
+### Journal Confirmation
+
+* name: Nature Medicine
+  url: https://www.nature.com/nm/
+  weight: 6
+
+* name: The Lancet Digital Health
+  url: https://www.thelancet.com/journals/landig
+  weight: 6
+
+* name: JAMIA
+  url: https://academic.oup.com/jamia
+  weight: 6
+
+### Search Template (Medical LLM)
+
+* "clinical large language model"
+* "medical foundation model"
+* "LLM for electronic health records"
+* "multimodal medical AI"
+* "clinical NLP transformer"
+
+---
+
+## IV. Global De-noising Rules
+
+### Prefer
+
+* 多中心 / 多机构数据
+* 明确实验设计与对照
+* 有消融或误差分析
+
+### Deprioritize
+
+* 单中心小样本 + 无对照
+* 概念性或 marketing 式论文
+* 无真实医疗数据验证的 demo
+
+---
+
+## V. Unified Crawling Priority
+
+执行顺序（从高到低）：
+
+1. arXiv
+2. medRxiv
+3. PubMed
+4. Top Conferences
+5. Top Journals
+
+---
+
+## End of Sources Configuration
