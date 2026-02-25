@@ -8,9 +8,10 @@
 - **ClinicalTrials.gov**: https://clinicaltrials.gov/ (全球临床试验注册库)
 - **Embase**: https://www.embase.com/ (全面的医学与药理学索引)
 - **Web of Science**: https://www.webofscience.com/ (引文索引与影响力分析)
+- **arXiv**: https://arxiv.org/ (AI, 机器学习, 计算机科学, 数学)
 
 ## 📌 二、开源与预印本 (先发优势 - 创新密集区)
-- **arXiv**: https://arxiv.org/ (AI, 机器学习, 计算机科学, 数学)
+
 - **medRxiv**: https://www.medrxiv.org/ (医学临床预印本)
 - **bioRxiv**: https://www.biorxiv.org/ (生命科学与基础生物学)
 - **ChemRxiv**: https://chemrxiv.org/ (化学与药物设计)
@@ -28,9 +29,7 @@
 ## 📌 五、评价 / 影响力 / 文献计量工具
 - **JCR (Journal Citation Reports)**: https://clarivate.com/webofsciencegroup/solutions/journal-citation-reports/ (期刊影响因子查询)
 - **Scopus**: https://www.scopus.com/ (引文追踪)
-- **Dimensions**: https://www.dimensions.ai/ (论文、资助、专利三合一分析)
 - **OpenAlex**: https://openalex.org/ (开源学术知识图谱)
 
 ## 📌 六、临床 AI + 计算医学专库
-- **NIH CLiCR**: https://clinical.ai/ (FDA/NIH 指南、临床 AI 案例汇总)
 - **FDA 数字健康卓越中心**: https://www.fda.gov/medical-devices/digital-health-center-excellence (监管政策与试验要求)
