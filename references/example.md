@@ -32,7 +32,7 @@
 ### 主题簇 1：架构级抗噪增强 (Architectural Robustness)
 1. **[Noise-Aware Named Entity Recognition for Historical/Clinical Documents](https://arxiv.org/abs/2601.07119)** (2026-01-28, arXiv)
    - **贡献**: 探索大模型在字符级扰动下的原生抗性，打破了“先纠错后识别”的漏斗链条。
-   - **标签**: `Methodology` `Zero-shot Migration`
+   - **标签**: `cs.CL` `Robustness` `Zero-shot Inference` (Source Keywords)
    - **专家洞察**: 
      - *解决痛点*: 降低了外部繁琐纠错字典的依赖，避免了第一阶段错误向第二阶段的级联传播。
      - *局限性/Cons*: 对于像素极低的扫描件，单一 NAT 模型的抗扰动能力仍存在天花板。
@@ -41,7 +41,7 @@
 ### 主题簇 2：混合系统与基准确立 (Hybrid Systems & Benchmarking)
 2. **[Hybrid Approaches for NER in Noisy OCR Medical Records](https://journalijsra.com/content/2025/01/21/hybrid-ner-medical)** (2025, Journal of IJSRA)
    - **贡献**: 结合神经模型与确定性规则，解决 EHR 专有缩写识别失效问题。
-   - **标签**: `Hybrid System` `Practical NLP`
+   - **标签**: `Medical Informatics` `Named Entity Recognition` `EHR` (Source Keywords)
    - **专家洞察**: 
      - *解决痛点*: 纯神经模型在处理诸如 'q.d.'（每日一次）等关键医疗缩写遭遇 OCR 强扭曲时极易发生语义崩塌，本方案解决了该致命缺陷。
      - *局限性/Cons*: 混合规则库的硬编码性质导致其难以被无缝迁移至非英语环境。
@@ -49,7 +49,7 @@
 
 3. **[The Impact of OCR Quality on NLP Tasks: A Systematic Study](https://universiteitleiden.nl/research/ocr-quality-nlp)** (2025, Leiden Univ Rep)
    - **贡献**: 首次系统性量化了临床 NLP 系统因 OCR 衰减而导致“决策失效”的临界阈值。
-   - **标签**: `Systematic Study` `Benchmark`
+   - **标签**: `OCR Quality Evaluation` `Clinical NLP pipelines` (Source Keywords)
    - **专家洞察**: 
      - *解决痛点*: 为临床 NLP 系统的工程部署提供了一个清晰的“弃用线/人工介入线”。
      - *局限性/Cons*: 仅在印欧语系资料上验证，针对表意文字（如中文病历）的退化曲线尚不明确。
