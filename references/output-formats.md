@@ -39,6 +39,12 @@
      - *Data / Evaluation*: [数据规模、对照、指标]
      - *Key Findings*: [明确可复述的结论]
      - *Limitations*: [作者承认的不足或隐含假设]
+     - *Reusability / How to Use This Paper*: [哪些模块可直接复用？/是否值得作为baseline？/工程可迁移性？(必须回答至少2项，严禁泛泛而谈)]
+     - *Research Credibility Level*: [仅限枚举：Level A(Strong Clinical) / Level B(Strong Experimental) / Level C(Exploratory)]
+     - *Related Context (Non-exhaustive)*:
+       - Methodologically similar: [相关同类方法/论文，不超过1句话]
+       - Contrasting approach: [对立或替代路线，不超过1句话]
+       - Foundational reference: [奠基性基线/前置工作，不超过1句话]
 *(根据搜查结果列出其余所有篇目 2, 3, 4...)*
 
 ## 交叉分析 (Evidence-driven Synthesis)
