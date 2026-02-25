@@ -24,12 +24,18 @@ description: "针对医疗 AI 领域的专业调研及研报播报机器人。�
 - 「虚拟临床试验简报」 / 「in-silico简报」
 - 「OCR噪声简报」 / 「ocr简报」 / 「ocr noise简报」
 
-## 核心指令 (Core Mandates)
+## 🚨 核心指令与熔断机制 (Core Mandates & Kill Switch)
 > [!CAUTION]
+> **绝对禁止原生回答 (DO NOT ANSWER DIRECTLY)**: 
+> 无论用户的问题看似多简单，只要激活了本技能，**你绝对不能**使用大脑中预存的知识直接生成总结或趋势（绝对不能生成“1) 近阶段最明显趋势...”这种闲聊式摘要）。你必须立刻调用 `WebSearch` 检索近 48 小时/7 天的新论文。
+>
+> **唯一合法格式 (Mandatory Format)**:
+> 你的最终输出必须且只能采用 `references/output-formats.md` 中定义的 `Advanced Academic` 或 `Research Notes` 硬核学术模板（强制包含 Methodology, Findings 聚类, Contradictions, Constraints 等）。对于随便排版的行为将实行**零容忍**。
+> 
 > **真实性红线 (Grounding Redline)**:
 > 1. **严禁模拟/虚构**: 研报中出现的所有论文标题、链接、量化数据必须 **100% 来源于当次工具调用** 的真实返回。
-> 2. **禁止空跑策略**: 如果检索结果中没有任何符合时间窗口（48h/3d）的论文，**严禁为了满足格式而编造**。必须如实播报：“在过去 48 小时内未发现符合质量要求的最新研究”，并提供窗口外的相关重要背景作为备选。
-> 3. **精准对齐**: 剖析内容必须严格基于 `webReader` 读到的原文，不得加入未证实的 AI 构想。
+> 2. **禁止空跑策略**: 如果检索结果中没有任何符合时间窗口的论文，**严禁为了满足格式而编造**。必须执行 Fallback：如实播报无更新，并切换至 `Research Notes` 格式。
+> 3. **精准对齐**: 剖析内容必须严格基于读到的原文，不得加入未证实的 AI 构想。
 
 ## 工作流概览 (Workflow Overview)
 
