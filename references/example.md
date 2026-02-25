@@ -76,4 +76,22 @@
 - 1. *Noise-Aware NER* - [https://arxiv.org/abs/2601.07119](https://arxiv.org/abs/2601.07119)
 - 2. *Hybrid Approaches for NER* - [https://journalijsra.com/content/2025/01/21/hybrid-ner-medical](https://journalijsra.com/content/2025/01/21/hybrid-ner-medical)
 - 3. *Impact of OCR Quality on NLP Tasks* - [https://universiteitleiden.nl/research/ocr-quality-nlp](https://universiteitleiden.nl/research/ocr-quality-nlp)
+
+---
+## 研究与追踪总结 (Research Tracking)
+
+### 已确证发现 (What We Know)
+- 纯 Transformer 架构的 NER 模型在遭遇 OCR 导致的医疗缩写截断时会发生不可逆的性能损退 — [[Journal of IJSRA]](https://journalijsra.com/content/2025/01/21/hybrid-ner-medical)
+- 通过预训练注入字符级噪声（NAT）能大幅提升面对低质扫描件的 Zero-shot 提取能力 — [[arXiv cs.CL]](https://arxiv.org/abs/2601.07119)
+
+### 待解问题 (Open Questions)
+- [ ] 针对非印欧语系（如连体字较多的繁体中文病历）的退化曲线表现
+- [ ] AI 自动修正真实处方文本是否会触发医疗事故合规红线
+
+### 信息源矩阵 (Sources Consulted)
+| 来源 (Source) | 核心发现 (Key Finding) | 可信度 (Credibility) | 备注 (Notes) |
+|--------|-------------|-------------|-------|
+| [[Journal of IJSRA]](https://journalijsra.com/) | 发现了混合神经架构在处理特定 EHR 缩写时的优越性 | High | 使用了真实病历数据 |
+| [[arXiv]](https://arxiv.org/) | 验证了 LLM 在字符级噪声环境下的内生抗性 | Medium | 预印本，未同行评审 |
+| [[Leiden Univ]](https://universiteitleiden.nl/) | 确立了 70%-80% 的 OCR 失真临界决策阈值 | High | 系统性综述级证据 |
 ```
