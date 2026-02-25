@@ -32,6 +32,7 @@ description: "医疗 AI领域的专业调研播报引擎。"
 <thinking>
   <state>Assets loading status (CLAUDE.md, SOUL.md, TOOLS.md, AGENTS.md)</state>
   <intent_analysis>Request intent [Recency / Related]. Constraints set to [X].</intent_analysis>
+  <resolution_route>Select Route: [Mode A: Broad Synthesis (简报)] OR [Mode B: Solution-Oriented Flash (近报)]</resolution_route>
   <tool_results_check>Found X papers. Filtering out commercial noise...</tool_results_check>
   <paper_analysis id="1">
     <title>Original Paper Title</title>
@@ -51,11 +52,14 @@ description: "医疗 AI领域的专业调研播报引擎。"
 
 ## 4. 强制输出终态 (Final Assembly)
 
-当 `<thinking>` 屏障安全跑完后，你**必须严格按照以下 Markdown 模板输出最终结果**（不可缩减任何一根维度）：
+当 `<thinking>` 屏障安全跑完后，你**必须严格根据 `<resolution_route>` 选择下方对应的 Markdown 模板输出最终结果**（不可混合，不可缩减指定维度）：
+
+### 轨道 A: 简报模式 (Broad Synthesis - 全景脉络)
+**适用场景**: 用户希望了解全貌、涵盖基础与演进。
 
 ```markdown
 # 🏥 深度医学综述: [研究方向]
-**日期**: YYYY-MM-DD | **覆盖**: [24h/72h/7d 或 Related-mode] | **模式**: Advanced Academic
+**日期**: YYYY-MM-DD | **覆盖**: [24h/72h/7d 或 Related-mode] | **模式**: Broad Synthesis (简报)
 
 ## 摘要 (Abstract)
 [完整概述检索到的核心动态、主要方法、核心发现及对该领域的影响结论]
@@ -105,7 +109,39 @@ description: "医疗 AI领域的专业调研播报引擎。"
 [给出最终判断与落地建议]
 
 ## 参考文献 (References)
+## 参考文献 (References)
 - 1. *作者等*, "[标题 A](链接)" - DOI/ID *(大龄基准标注 [Seminal / Baseline])*
+```
+
+### 轨道 B: 近报模式 (Solution-Oriented Flash - 最优解合成)
+**适用场景**: 用户聚焦近期思路，寻找落地解法。**此模式下抛弃长篇论文拆解，直接输出提纯后的组合技。**
+
+```markdown
+# ⚡ 医学前沿近报: [研究方向]
+**日期**: YYYY-MM-DD | **近期聚焦**: [24h/72h/30d] | **模式**: Solution-Oriented Flash (近报)
+
+## 核心挑战与近期聚焦 (Current Bottleneck)
+[一句话总结近期文献都在试图解决的核心痛点]
+
+## 最优组合解决方案 (Optimal Solution Synthesis)
+*(基于最新检索到的几篇论文思路，提纯成一套可行动的综合解决方案)*
+### 1. 架构/方法组合 (Methodological Synergy)
+- **主体框架**: [提炼自最新文献 A 的主干模型/方法]
+- **增强模块**: [提炼自文献 B 或 C 的增强策略/约束规则]
+### 2. 评测与数据策略 (Data & Evaluation Tactics)
+- [提炼各文献中采用的最佳数据处理手段或评测指标]
+
+## 关键模块复用清单 (Actionable Reusability)
+- `[模块名]`: 来源于 *[原文献标题](链接)*，可用于解决 [具体问题]，置信等级评定为 `[Level A/B/C]`。
+- `[数据集/代码]`: 来源于 *[原文献标题](链接)*，可用于复现/评测。
+
+## 方案局限性评估 (Vulnerability Check)
+[基于各篇论文的 Limitations 综合分析这套缝合方案潜在的失效点]
+
+## 参考文献支撑 (Supporting References)
+*(仅列出构成本次“最优解”的核心来源文献)*
+- 1. *作者等*, "[标题 A](标题A链接)" (提供主体框架)
+- 2. *作者等*, "[标题 B](标题B链接)" (提供增强模块)
 ```
 
 ---

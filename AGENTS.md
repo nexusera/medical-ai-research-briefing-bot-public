@@ -5,8 +5,10 @@
 ## UserPromptSubmit Hook
 - **Trigger**: 用户输入指令并请求简报。
 - **Action**: 
-  1. 拦截用户意图。检查是否触发了时效检索（如：“今天的简报”、“最新会议”）或关联检索（如：“近年来基准对比”、“方向脉络”）。
-  2. 根据意图，组装正确的 `WebSearch` 的时间窗约束条件（具体法则见 `TOOLS.md`）。
+  1. 拦截用户意图，进行双轨定点解析判别（Dual-Resolution Routing）：
+     - **模式 A (简报 / Broad Synthesis)**: 判别依据词如“简报”、“全面概览”、“脉络”。触发纵深模式（无硬性短窗口，必须包含过往奠基作与近年演进）。
+     - **模式 B (近报 / Solution-Oriented Flash)**: 判别依据词如“近报”、“最新思路”、“最优方案”。触发当下模式（短窗口，摒弃历史基线大纲，侧重于抽取模块合体现有最优解）。
+  2. 根据意图，组装正确的 `WebSearch` 约束条件（具体法则见 `TOOLS.md`）。
   3. 隐性加载 `SOUL.md` 和 `CLAUDE.md` 进入内存约束，对最终响应格式上锁。
 
 ## CodeExecution / PostToolUse Hook
