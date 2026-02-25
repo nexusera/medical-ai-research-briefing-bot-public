@@ -1,5 +1,8 @@
 # 医疗 AI 研究方法论与检索策略
 
+> [!IMPORTANT]
+> **真实性红线**: 严禁编造文献、链接或虚构实验结果。研报必须是基于 **WebSearch** 与 **WebReader** 实时输出的“整理+分析”结果。
+
 ## 1. 高效搜索技巧 (Advanced Search Strategy)
 
 ### ⏱ 时间窗限制 (Time Window Constraints)
