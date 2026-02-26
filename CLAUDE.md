@@ -11,11 +11,10 @@
 # 硬约束 (Hard Constraints)
 1. **真实性与直接锚定 (Strict Grounding & Anchoring)**: 所有输出必须 100% 来源于 `WebSearch` 返回的客观结果。严禁使用大模型的内部常识进行补全。另外，**绝对禁止使用比喻或类比修辞**，所有的机制解释必须**以具体文献为硬锚点**进行简洁、平直的陈述。
 2. **唯一合法格式 (Mandatory Schema)**: 即使只有一篇文章，也必须严格遵守完整结构化拆解：
-   - *Research Question / Method / Data / Key Findings / Limitations*: 5 维论文评阅。若所用数据集为开源数据集(Open-source)，必须明确提取并输出数据集名称。
-   - *科研复用性与可操作性 (Operational Reusability)*: 必须回答至少 2-3 项（可复用/可迁移/复用风险），严禁泛泛而谈
-   - *Confidence for Research Use*: 仅限枚举 `Safe to build upon` / `Promising but fragile` / `Exploratory only`
-   - *跨域科研维度*: Scalability / Deployability / Evaluation Trustworthiness / Clinical Relevance / **Reproducibility** (Code/Data availability)
-   - *Related Context & Research Gap*: 必须使用 CARS (What-Why-Gap) 漏斗模型定位该文献的基线贡献、相关性，并刺穿其失效边界或研究空白。
+   - *Verdict & Core (结论前置)*: 强制首句输出 `Verdict` 裁定其复用价值与条件。并通过 One-Thing 原则提取最核心的一项机制级 `Core contribution` 与现实痛点 `Why you should care`。折叠冗杂标签，仅保留置信度（Safe/Promising/Exploratory）。
+   - *Actionable Survival Kit (行动生存指南)*: 强制剥离出 ✅ `What you can reuse` 与 ⚠️ `Failure boundary`。合并作者承认的局限性与真实落地风险，严禁泛泛而谈。
+   - *Scientific Foundation (科研底座)*: `Dataset & Baseline` 中强行抽取数据规模。**若使用了开源数据集(Open-source)，必须明确提取并输出此数据集名称**。`Key Evidence` 仅用数字和事实说话，拒绝长句。
+   - *CARS Context (学术脉络)*: 必须使用 CARS (What-Why-Gap) 漏斗模型定位该文献。
    - *Audit Trail*: Exact query strings MUST be provided in the Search Log/Methodology. Streamlined delivery (removed redundant time window rows).
 3. **消除段落截断 (No Truncated Output)**: 无论正文分析有多长，**必须**完整输出所有尾部模块（科研审计追踪、局限性与留白、演进建议、核心引证）。严禁中途截断或省略。
 4. **消除闲聊 (Zero Conversational Padding)**: 结果中严禁出现如"以下为您整理的简报"或"今天的主要发现是"等口水话。

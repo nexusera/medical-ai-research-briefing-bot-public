@@ -41,14 +41,12 @@ description: "医疗 AI领域的专业调研播报引擎。"
   <tool_results_check>Found X papers. Filtering out commercial noise...</tool_results_check>
   <paper_analysis id="1">
     <title>Original Paper Title</title>
-    <ResearchQuestion>...</ResearchQuestion>
-    <Method>...</Method>
-    <Data>Include dataset names explicitly if open-source dataset is used...</Data>
-    <KeyFindings>...</KeyFindings>
-    <Limitations>...</Limitations>
-    <Reusability>Evaluate reusability/baseline potential...</Reusability>
-    <CredibilityLevel>A/B/C...</CredibilityLevel>
-    <RelatedContext>Find related non-time-bound context from memory/search...</RelatedContext>
+    <OneThing>If I only remember ONE thing from this paper, what is it (Core contribution)?</OneThing>
+    <Verdict>Value judgement: Is it worth using? Under what conditions?</Verdict>
+    <WhyCare>What real-world problem does it solve?</WhyCare>
+    <Actionable>What is directly reusable? What are the failure boundaries/limitations?</Actionable>
+    <ScientificData>Dataset names (must extract open-source datasets), baseline, key evidence numbers.</ScientificData>
+    <CARS>What-Why-Gap relation to context.</CARS>
   </paper_analysis>
   ...
   <expression_check>Ensuring clear and direct language. No metaphors/analogies. Anchored to papers.</expression_check>
@@ -83,26 +81,19 @@ description: "医疗 AI领域的专业调研播报引擎。"
 ## 实证证据与发现 (Empirical Evidence & Findings)
 
 1. **[论文标题 A](必须是真实超链接)** — *作者A等* (来源: [期刊/平台], [年份])
-   - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等]` `[超龄基准标注 Seminal/Baseline]`
-   - **跨域科研维度**: `[Scalability: High/Med/Low]` `[Deployability: High/Med/Low]` `[Evaluation Trustworthiness: High/Med/Low]` `[Clinical Relevance: High/Med/Low]` `[Reproducibility: Code+Data/Code only/None]`
-   - **结构化分析**: 
-     - *Research Question*: [解决什么具体问题]
-     - *Method / System*: [采用何种模型、系统或流程]
-     - *Data / Evaluation*: [数据规模、对照、指标。若使用了开源数据集(Open-source dataset)，必须明确给出该数据集的名称]
-     - *Key Findings*: [明确可复用的结论]
-     - *Limitations*: [作者承认的不足或隐含假设]
-   - **科研复用性与可操作性 (Operational Reusability)** *(必须回答至少 2-3 项，严禁泛泛而谈)*:
-     - 可复用: [哪些模块/pipeline/评测思路可直接拿来用？]
-     - 可迁移: [如果我做 X 方向，这篇能帮我省掉哪一步？]
-     - 复用风险: [哪些部分与真实场景差距大？]
-   - **Confidence for Research Use** *(仅限枚举)*:
-     - `Safe to build upon` — 多中心/RCT/真实世界验证 + 充分消融 + 可复现
-     - `Promising but fragile` — 严格对照但数据有限或缺乏跨机构验证
-     - `Exploratory only` — 小样本/合成数据/初步验证
-   - **Related Context & Research Gap (CARS Model)** *(用以构建批判性文献综述)*:
-     - *What they did (基线贡献)*: [客观陈述该文献提出的核心机制/基线方法]
-     - *Why it's relevant (理论纽带)*: [阐明该文献与当前检索意图/主流架构的直接联系]
-     - *What gap remains (缺陷与破局)*: [指出该文献的失效边界或未解疑难，为后续研究建立立足点]
+   *(置信度: `Safe to build upon` | 标签: `[方向: OCR等]` `[机制: 具体方法/基线等]`)*
+
+   > **Verdict**: [一句话判断，必须包含“值/不值 + 条件”。示例：Strong baseline for X, but fails under Y.]
+
+   - **Why you should care**: [1 行：指出它所解决的处于何种痛点中的现实问题]
+   - **Core contribution (One-Thing)**: [1–2 行：强制只写一项最核心的机制级新东西]
+   - ---
+   - ✅ **What you can reuse**: [具体哪一条流水线/代码/结构是可以直接抄的？]
+   - ⚠️ **Failure boundary**: [在哪些场景或假设池里它会失效/性能崩塌？这里要求合并作者承认的 Limitations 以及真实世界场景下的落地边界]
+   - ---
+   - **Dataset & Baseline**: [数据规模与对比基线。若使用了开源数据集(Open-source dataset)，必须明确提取并输出数据集的名称]
+   - **Key Evidence**: [客观摘要：例如 F1 提升 11% 等。不要长句，只需数字级别的事实支撑]
+   - **CARS Context**: [What (基线) -> Why (相关) -> Gap (缺陷与破局)。用一句话构建批判性学术脉络]
 *(根据搜查结果列出其余所有篇目 2, 3...)*
 
 ## 多维证据合成 (Multidimensional Evidence Synthesis)
