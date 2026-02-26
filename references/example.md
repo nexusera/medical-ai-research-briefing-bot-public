@@ -36,11 +36,11 @@
    - **Why you should care**: 探索了在无需外部纠错字典介入下，使得下游模型能利用自身参数抗击字符级 OCR 扰动的可能性。
    - **Core contribution (One-Thing)**: 提出 Noise-Aware Transformer (NAT) 架构，开创了在预训练阶段直接内化仿真文字失真特征的工程范式。
    - ---
-   - ✅ **What you can reuse**: 开源的针对 MIMIC-III 构造截断噪声的数据生成脚本；NAT 预训练架构可直接作为后续实验基线。
+   - ✅ **What you can reuse (实验方法与思路)**: 开源的针对 MIMIC-III 构造截断噪声的数据生成脚本；NAT 预训练架构可直接作为后续实验基线。
    - ⚠️ **Failure boundary**: 对于像素极低的扫描件和结构化完全损毁的非结构化病历，其抗扰动权重模型会崩溃失效。
    - ---
-   - **Dataset & Baseline**: MIMIC-III (Open-source dataset) 临床病历子集，人工注入 0%~20% 截断噪声 / 对比基线为传统的先纠错后预测漏斗链条。
-   - **Key Evidence**: 在重度噪声场景下，新架构的实体召回率绝对提升了高达 11%。
+   - 💽 **Data & Code Availability**: 测试集使用 MIMIC-III (Open-source dataset)。代码库开源获取地址：https://github.com/example/nat-medical。
+   - 📊 **Baseline & Evidence**: 相比传统的“先纠错后预测”漏斗，新架构在重度噪声场景下的实体召回率绝对提升了高达 11%。
    - **CARS Context**: 本篇奠定了被动防御策略的理论重要性，但也暴露了单纯依赖 NAT 在极限破坏下的缺陷，引出了必须转向混合/主动防御的必要性。
 
 2. **[Hybrid Approaches for NER in Noisy OCR Medical Records](https://journalijsra.com/content/2025/01/21/hybrid-ner-medical)** — *Chen et al.* (2025) 
@@ -51,11 +51,11 @@
    - **Why you should care**: 解决了医疗缩写词组遭受 OCR 截断时，现有纯神经预测器经常 100% 崩溃的痛点。
    - **Core contribution (One-Thing)**: 结合深度学习预测机制与传统的强词典匹配模式，构成坚不可摧的双轨混合架构。
    - ---
-   - ✅ **What you can reuse**: 论文随附的基于医疗缩写的匹配纠错知识插件具有极高的工程直接落地属性。
+   - ✅ **What you can reuse (实验方法与思路)**: 论文随附的基于医疗缩写的匹配纠错知识插件具有极高的工程直接落地属性。
    - ⚠️ **Failure boundary**: 规则维护负担沉重，遇到未登录的新专科词汇时神经末梢完全缺乏跨域迁徙能力。
    - ---
-   - **Dataset & Baseline**: 基于 5,000 份强医疗噪声污染下的 EHR 语料库。
-   - **Key Evidence**: 针对短实体（尤其是缩写）的 F1 成绩从基础线的 0.72 直接拉升到 0.85。
+   - 💽 **Data & Code Availability**: 5,000 份强医疗噪声污染下的 EHR 语料库 (私有资产，暂未开源)。模型代码未提供公开访问链接。
+   - 📊 **Baseline & Evidence**: 针对短实体（尤其是缩写），相比纯神经基线 0.72，其 F1 成绩直线拉升到 0.85。
    - **CARS Context**: 提供了一个以高成本换取高精度的对比案例（Contrast case），为本文所主张的平衡型主动纠错先验提供了一层基于真实世界效果对比的论证依据。
 
 *(此处省略其余论文列表...)*

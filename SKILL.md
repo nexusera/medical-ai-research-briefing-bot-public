@@ -45,7 +45,8 @@ description: "医疗 AI领域的专业调研播报引擎。"
     <Verdict>[Source: Full Synthesis] Value judgement: Is it worth using? Under what conditions?</Verdict>
     <WhyCare>[Source: Introduction] What real-world problem does it solve?</WhyCare>
     <Actionable>[Source: Implementation/Methods] What experimental methods, pipelines, or ideas are directly reusable (可复用的实验思路/代码)? What are the failure boundaries?</Actionable>
-    <ScientificData>[Source: Experiments/Dataset] Dataset names (must extract open-source datasets), baseline, key evidence numbers.</ScientificData>
+    <DataCode>[Source: Data Availability/Experiments] Exact dataset names, scale, source (Public/Private), and code availability (GitHub url). Must explicitly state if closed-source.</DataCode>
+    <Evidence>[Source: Experiments/Results] Objective comparison against Baseline. Key evidence numbers.</Evidence>
     <CARS>[Source: Related Work] What-Why-Gap relation to context.</CARS>
   </paper_analysis>
   ...
@@ -91,8 +92,8 @@ description: "医疗 AI领域的专业调研播报引擎。"
    - ✅ **What you can reuse (实验方法与思路)**: [从 Implementation/Methods 提取具体哪一条实验管线/系统思路/代码是可以直接复用的？]
    - ⚠️ **Failure boundary**: [从 Discussion / Limitations 提取在哪些场景或假设池里它会失效/性能崩塌？这里要求合并作者承认的 Limitations 以及真实落地边界]
    - ---
-   - **Dataset & Baseline**: [从 Experiments / Dataset 提取数据规模与对比基线。若使用了开源数据集(Open-source dataset)，必须明确提炼该数据集名称]
-   - **Key Evidence**: [从 Abstract / Results 提取客观客观摘要：例如 F1 提升 11% 等。不要长句，只需数字支撑]
+   - 💽 **Data & Code Availability**: [强制查验：提取数据集名称、数据规模及获取权限(开源/私有)；必须抽取代码是否开源及具体链接(如 GitHub)。若文献未提供，必须明确写出“代码/数据未开源”]
+   - 📊 **Baseline & Evidence**: [从 Experiments/Results 提取客观对比摘要：例如相比基线 X，F1 提升 11%。拒绝长句，只展示硬指标支撑]
    - **CARS Context**: [从 Related Work 提取 What (基线) -> Why (相关) -> Gap (缺陷与破局)。一句话构建批判性学术脉络]
 *(根据搜查结果列出其余所有篇目 2, 3...)*
 

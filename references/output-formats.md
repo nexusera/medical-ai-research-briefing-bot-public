@@ -40,8 +40,8 @@
    - ✅ **What you can reuse (实验方法与思路)**: [从 Implementation/Methods 提取具体哪一条实验管线/系统思路/代码是可以直接复用的？]
    - ⚠️ **Failure boundary**: [从 Discussion/Limitations 提取在哪些场景或假设池里它会失效/性能崩塌？这里要求合并作者承认的 Limitations 以及真实落地边界]
    - ---
-   - **Dataset & Baseline**: [从 Experiments/Dataset 提取数据规模与对比基线。若使用了开源数据集(Open-source dataset)，必须明确提炼该数据集名称]
-   - **Key Evidence**: [从 Abstract/Results 提取客观摘要：例如 F1 提升 11% 等。不要长句，只需数字支撑]
+   - 💽 **Data & Code Availability**: [强制查验：提取数据集名称、数据规模及获取权限(开源/私有)；必须抽取代码是否开源及具体链接(如 GitHub)。若文献未提供，必须明确写出“代码/数据未开源”]
+   - 📊 **Baseline & Evidence**: [从 Experiments/Results 提取客观对比摘要：例如相比基线 X，F1 提升 11%。拒绝长句，只展示硬指标支撑]
    - **CARS Context**: [从 Related Work 提取 What (基线) -> Why (相关) -> Gap (缺陷与破局)。用一句话构建批判性学术脉络]
 *(根据搜查结果列出其余所有篇目 2, 3, 4...)*
 
@@ -115,8 +115,8 @@
    - ✅ **What you can reuse (实验方法与思路)**: [从 Implementation/Methods 提取具体哪一条实验管线/系统思路/代码是可以直接复用的？]
    - ⚠️ **Failure boundary**: [从 Discussion/Limitations 提取在哪些场景或假设池里它会失效/性能崩塌？这里要求合并作者承认的 Limitations 以及真实落地边界]
    - ---
-   - **Dataset & Baseline**: [从 Experiments/Dataset 提取数据规模与对比基线。若使用了开源数据集(Open-source dataset)，必须明确提炼该数据集名称]
-   - **Key Evidence**: [从 Abstract/Results 提取客观摘要：例如 F1 提升 11% 等。不要长句，只需数字支撑]
+   - 💽 **Data & Code Availability**: [强制查验：提取数据集名称、数据规模及获取权限(开源/私有)；必须抽取代码是否开源及具体链接(如 GitHub)。若文献未提供，必须明确写出“代码/数据未开源”]
+   - 📊 **Baseline & Evidence**: [从 Experiments/Results 提取客观对比摘要：例如相比基线 X，F1 提升 11%。拒绝长句，只展示硬指标支撑]
    - **CARS Context**: [从 Related Work 提取 What (基线) -> Why (相关) -> Gap (缺陷与破局)。用一句话构建批判性学术脉络]
 *(根据搜查结果列出其余所有篇目 2, 3...)*
 

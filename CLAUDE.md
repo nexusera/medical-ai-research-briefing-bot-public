@@ -13,7 +13,7 @@
 2. **唯一合法格式 (Mandatory Schema)**: 即使只有一篇文章，也必须严格遵守完整结构化拆解：
    - *Verdict & Core (结论前置)*: 强制首句输出 `Verdict` 裁定其复用价值与条件。并通过 One-Thing 原则提取最核心的一项机制级 `Core contribution` 与现实痛点 `Why you should care`。折叠冗杂标签，仅保留置信度（Safe/Promising/Exploratory）。
    - *Actionable Survival Kit (行动生存指南)*: 强制剥离出 ✅ `What you can reuse` 与 ⚠️ `Failure boundary`。合并作者承认的局限性与真实落地风险，严禁泛泛而谈。
-   - *Scientific Foundation (科研底座)*: `Dataset & Baseline` 中强行抽取数据规模。**若使用了开源数据集(Open-source)，必须明确提取并输出此数据集名称**。`Key Evidence` 仅用数字和事实说话，拒绝长句。
+   - *Scientific Foundation (科研底座)*: 强行抽取 `💽 Data & Code Availability` 与 `📊 Baseline & Evidence`。**强制核验数据与代码的开源属性及 GitHub 链接，若未提及必须断言“未开源”**。对比证据仅用数字和事实说话，拒绝模糊长句。
    - *CARS Context (学术脉络)*: 必须使用 CARS (What-Why-Gap) 漏斗模型定位该文献。
    - *Audit Trail*: Exact query strings MUST be provided in the Search Log/Methodology. Streamlined delivery (removed redundant time window rows).
 3. **消除段落截断 (No Truncated Output)**: 无论正文分析有多长，**必须**完整输出所有尾部模块（科研审计追踪、局限性与留白、演进建议、核心引证）。严禁中途截断或省略。
