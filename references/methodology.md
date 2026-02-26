@@ -37,8 +37,8 @@
 输出按 **"领域 -> 主题簇 -> 论文条目"** 组织，而不是按来源堆列表。
 
 **模式选择（见 `AGENTS.md` Hook 路由）：**
-- **简报 (Broad Synthesis)**: 纵深模式。涵盖奠基性概念 + 近 3 年大趋势 + 近 1 年核心落地。用于建立全景认知。
-- **近报 (Solution-Oriented Flash)**: 聚焦短窗口近期思路，每篇论文分析框架与简报统一，但额外输出“最优技术路径合成 (Optimal Technical Path Synthesis)”。
+- **高级学术综述 (Broad Synthesis)**: 纵深模式。涵盖奠基性概念 + 近 3 年大趋势 + 近 1 年核心落地。用于建立全景认知。
+- **高级前沿快报 (Solution-Oriented Flash)**: 聚焦短窗口近期思路，每篇论文分析框架与综述统一，但额外输出“最优技术路径合成 (Optimal Technical Path Synthesis)”。
 
 每条至少包含：
 1. **标题 + 一句话贡献** (Headline)

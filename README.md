@@ -1,6 +1,6 @@
 # 医疗 AI 研报播报机器人 / Medical AI Research Briefing Bot
 
-针对 MDT、医疗大模型、虚拟临床试验、OCR 噪声四个专业方向的研报技能。支持**简报 (Broad Synthesis)** 与 **近报 (Solution-Oriented Flash)** 双轨输出。**完全符合 Clawdbot 高级学术标准。**
+针对 MDT、医疗大模型、虚拟临床试验、OCR 噪声四个专业方向的研报技能。支持**高级学术综述 (Broad Synthesis)** 与 **高级前沿快报 (Solution-Oriented Flash)** 双轨输出。**完全符合 Clawdbot 高级学术标准。**
 
 ---
 
@@ -46,13 +46,13 @@
 ## 3. 信息源与方法论
 - **信息源**: 详见 `references/sources.md` (包含 PubMed, NEJM, Lancet, Nature Medicine, arXiv 等 27 个专业平台)。
 - **分析方法**: 详见 `references/methodology.md` (包含论文脉络分析、优缺点对比及弱点识别逻辑)。
-- **输出格式**: 详见 `references/output-formats.md` (**双轨模式：简报 Broad Synthesis / 近报 Solution-Oriented Flash**)。
-- **使用示例**: 详见 `references/example.md` (包含基于 2026 年实时数据的 OCR 简报示例)。
+- **输出格式**: 详见 `references/output-formats.md` (**双轨模式：高级学术综述 Broad Synthesis / 高级前沿快报 Solution-Oriented Flash**)。
+- **使用示例**: 详见 `references/example.md` (包含基于 2026 年实时数据的高级学术综述示例)。
 
 ## 4. 自动化部署 (示例)
 参考 `scripts/run_briefing.sh` 配合同步安装的脚本进行自动化推送：
 ```bash
-# 生成简报并通过管道发送到飞书
+# 生成学术综述并通过管道发送到飞书
 bash scripts/run_briefing.sh | python3 scripts/feishu_push.py "您的飞书Webhook地址"
 ```
 

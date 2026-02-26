@@ -4,11 +4,11 @@
 
 **用户请求**：`ocr简报`
 
-**AI 输出内容 (Broad Synthesis 简报格式)**：
+**AI 输出内容 (Broad Synthesis 高级学术综述格式)**：
 
 ```markdown
-# 🏥 高级学术综述 (Advanced Academic Review): 医疗文档 OCR 噪声下的 NER 鲁棒性研究
-**日期**: 2026-02-25 | **覆盖**: Related-mode (no recency window) | **模式**: Broad Synthesis (简报)
+# 🏥 高级学术综述 (Advanced Academic Review): 临床 OCR 噪声及其影响机制
+**日期**: 2026-02-25 | **覆盖**: Related-mode (no recency window) | **模式**: Broad Synthesis (高级学术综述)
 
 ## 核心摘要 (Executive Abstract)
 本播报聚焦于近期关于医疗文书数字化质量的核心突破。核心趋势显示，研究已从简单的字符纠错进化为“噪声感知训练 (NAT)”与“混合语义校验”的深度集成，旨在通过预先注入模拟噪声提升模型在极端数字化场景下的鲁棒性。
@@ -106,11 +106,11 @@
 ### 使用示例 2: 高级前沿快报 (Advanced Frontier Flash - Mode B)
 **指令**: `医疗大模型 快报`
 
-**AI 输出内容 (Solution-Oriented Flash 近报格式)**：
+**AI 输出内容 (Solution-Oriented Flash 高级前沿快报格式)**：
 
 ```markdown
-# ⚡ 高级前沿快报 (Advanced Frontier Flash): 医疗大语言模型
-**日期**: 2026-02-25 | **近期聚焦**: 30d (直连实时抓取) | **模式**: Solution-Oriented Flash (近报)
+# ⚡ 高级前沿快报 (Advanced Frontier Flash): 抑制大语言模型处理 OCR 相关病历时的幻觉率
+**日期**: 2026-02-25 | **近期聚焦**: 30d (直连实时抓取) | **模式**: Solution-Oriented Flash (高级前沿快报)
 
 ## 核心摘要 (Executive Abstract)
 近 30 天医疗大模型的研究信号高度聚集于：1. RAG 在特定专科（如肝损伤、肿瘤）的纵深决策支持；2. 基于本体/知识图谱的闭环幻觉抑制；3. 医教场景下的生成质量评测。当前的共识是：纯参数扩容已进入边际效用递减期，“领域知识底座 + 精准检索增强 (RAG) + 动态结构化评测”构成当前最优落地路径。
