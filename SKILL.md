@@ -41,12 +41,12 @@ description: "医疗 AI领域的专业调研播报引擎。"
   <tool_results_check>Found X papers. Filtering out commercial noise...</tool_results_check>
   <paper_analysis id="1">
     <title>Original Paper Title</title>
-    <OneThing>If I only remember ONE thing from this paper, what is it (Core contribution)?</OneThing>
-    <Verdict>Value judgement: Is it worth using? Under what conditions?</Verdict>
-    <WhyCare>What real-world problem does it solve?</WhyCare>
-    <Actionable>What is directly reusable? What are the failure boundaries/limitations?</Actionable>
-    <ScientificData>Dataset names (must extract open-source datasets), baseline, key evidence numbers.</ScientificData>
-    <CARS>What-Why-Gap relation to context.</CARS>
+    <OneThing>[Source: Abstract/Conclusion] If I only remember ONE thing from this paper, what is it?</OneThing>
+    <Verdict>[Source: Full Synthesis] Value judgement: Is it worth using? Under what conditions?</Verdict>
+    <WhyCare>[Source: Introduction] What real-world problem does it solve?</WhyCare>
+    <Actionable>[Source: Implementation/Limitations/Discussion] What is directly reusable? What are the failure boundaries?</Actionable>
+    <ScientificData>[Source: Experiments/Dataset] Dataset names (must extract open-source datasets), baseline, key evidence numbers.</ScientificData>
+    <CARS>[Source: Related Work] What-Why-Gap relation to context.</CARS>
   </paper_analysis>
   ...
   <expression_check>Ensuring clear and direct language. No metaphors/analogies. Anchored to papers.</expression_check>
@@ -85,15 +85,15 @@ description: "医疗 AI领域的专业调研播报引擎。"
 
    > **Verdict**: [一句话判断，必须包含“值/不值 + 条件”。示例：Strong baseline for X, but fails under Y.]
 
-   - **Why you should care**: [1 行：指出它所解决的处于何种痛点中的现实问题]
-   - **Core contribution (One-Thing)**: [1–2 行：强制只写一项最核心的机制级新东西]
+   - **Why you should care**: [1 行：从 Introduction 提取它所解决的处于何种痛点中的现实问题]
+   - **Core contribution (One-Thing)**: [1–2 行：从 Abstract / Conclusion 提取，强制只写一项最核心的机制级新东西]
    - ---
-   - ✅ **What you can reuse**: [具体哪一条流水线/代码/结构是可以直接抄的？]
-   - ⚠️ **Failure boundary**: [在哪些场景或假设池里它会失效/性能崩塌？这里要求合并作者承认的 Limitations 以及真实世界场景下的落地边界]
+   - ✅ **What you can reuse**: [从 Implementation Details 提取具体哪一条流水线/代码/思路是可以直接抄的？]
+   - ⚠️ **Failure boundary**: [从 Discussion / Limitations 提取在哪些场景或假设池里它会失效/性能崩塌？这里要求合并作者承认的 Limitations 以及真实落地边界]
    - ---
-   - **Dataset & Baseline**: [数据规模与对比基线。若使用了开源数据集(Open-source dataset)，必须明确提取并输出数据集的名称]
-   - **Key Evidence**: [客观摘要：例如 F1 提升 11% 等。不要长句，只需数字级别的事实支撑]
-   - **CARS Context**: [What (基线) -> Why (相关) -> Gap (缺陷与破局)。用一句话构建批判性学术脉络]
+   - **Dataset & Baseline**: [从 Experiments / Dataset 提取数据规模与对比基线。若使用了开源数据集(Open-source dataset)，必须明确提炼该数据集名称]
+   - **Key Evidence**: [从 Abstract / Results 提取客观客观摘要：例如 F1 提升 11% 等。不要长句，只需数字支撑]
+   - **CARS Context**: [从 Related Work 提取 What (基线) -> Why (相关) -> Gap (缺陷与破局)。一句话构建批判性学术脉络]
 *(根据搜查结果列出其余所有篇目 2, 3...)*
 
 ## 多维证据合成 (Multidimensional Evidence Synthesis)
