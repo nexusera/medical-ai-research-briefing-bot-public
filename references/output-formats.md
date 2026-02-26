@@ -35,9 +35,9 @@
    > **Verdict**: [一句话判断，必须包含“值/不值 + 条件”。示例：Strong baseline for X, but fails under Y.]
 
    - **Why you should care**: [1 行：从 Introduction/Background 提取它所解决的处于何种痛点中的现实问题]
-   - **Core contribution (One-Thing)**: [1–2 行：从 Abstract/Conclusion 提取，强制只写一项最核心的机制级新东西]
+   - **Core contribution (One-Thing)**: [1–2 行：从 Abstract/Method 提取，强制只写一项最核心的实验方法与系统思路]
    - ---
-   - ✅ **What you can reuse**: [从 Implementation Details 提取具体哪一条流水线/代码/思路是可以直接抄的？]
+   - ✅ **What you can reuse (实验方法与思路)**: [从 Implementation/Methods 提取具体哪一条实验管线/系统思路/代码是可以直接复用的？]
    - ⚠️ **Failure boundary**: [从 Discussion/Limitations 提取在哪些场景或假设池里它会失效/性能崩塌？这里要求合并作者承认的 Limitations 以及真实落地边界]
    - ---
    - **Dataset & Baseline**: [从 Experiments/Dataset 提取数据规模与对比基线。若使用了开源数据集(Open-source dataset)，必须明确提炼该数据集名称]
@@ -110,9 +110,9 @@
    > **Verdict**: [一句话判断，必须包含“值/不值 + 条件”。示例：Strong baseline for X, but fails under Y.]
 
    - **Why you should care**: [1 行：从 Introduction/Background 提取它所解决的处于何种痛点中的现实问题]
-   - **Core contribution (One-Thing)**: [1–2 行：从 Abstract/Conclusion 提取，强制只写一项最核心的机制级新东西]
+   - **Core contribution (One-Thing)**: [1–2 行：从 Abstract/Method 提取，强制只写一项最核心的实验方法与系统思路]
    - ---
-   - ✅ **What you can reuse**: [从 Implementation Details 提取具体哪一条流水线/代码/思路是可以直接抄的？]
+   - ✅ **What you can reuse (实验方法与思路)**: [从 Implementation/Methods 提取具体哪一条实验管线/系统思路/代码是可以直接复用的？]
    - ⚠️ **Failure boundary**: [从 Discussion/Limitations 提取在哪些场景或假设池里它会失效/性能崩塌？这里要求合并作者承认的 Limitations 以及真实落地边界]
    - ---
    - **Dataset & Baseline**: [从 Experiments/Dataset 提取数据规模与对比基线。若使用了开源数据集(Open-source dataset)，必须明确提炼该数据集名称]
