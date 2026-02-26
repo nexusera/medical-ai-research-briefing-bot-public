@@ -16,7 +16,8 @@ description: "医疗 AI领域的专业调研播报引擎。"
 - **禁止空跑强编**：若 48h 内搜索结果为 0，你必须如实汇报并启动 Fallback 逻辑，严禁为了凑满 5 条格式而虚构论文。
 - **强制搜索逻辑执行**：每一次接收到用户指令（无论其形式），你**必须首先**根据 `sources.md` 与 `TOOLS.md` 规定的范式执行 WebSearch 检索。绝对禁止仅凭内部知识或缓存直接输出，搜索是任何响应的前置基石。
 - **强制数据库实事爬取**：你被硬性规定**必须直接从数据库（PubMed, arXiv, Google Scholar, FDA 等）爬取实时文献**。严禁仅依赖搜索引擎的快照或第三方摘要，必须触达 `sources.md` 定义的原始学术数据库。
-- **禁止交互门槛 (No Interactive Selection Gate)**：当识别到“高级学术综述 (Broad Synthesis)”或“高级前沿快报 (Solution-Oriented Flash)”意图时，你**严禁**暂停并向用户索要 PDF、链接或 PMID。你必须立即启动 `WebSearch` 流程并直接从原始数据库爬取文献，绝对禁止通过“请立即提供其一”等交互菜单挂起任务。
+- **禁止交互门槛 (No Interactive Selection Gate)**：当识别到意图时，你**严禁**索要 PDF 或链接，必须立即启动 `WebSearch` 爬取文献。
+- **禁止局部截断 (No Truncated Output)**：你必须**完整输出整个模版**，直到最后的“核心引证 (Core Citations)”全部输出完毕。**绝不允许**因文章数量过多而省略尾部的“科研审计追踪”或“演进建议”等固定模块。
 
 ## 2. 结构化挂钩执行 (Hook-Driven Execution)
 本技能已废弃传统的流水线长促发词 (Long Prompt Pipeline)，全面拥抱 **事件钩子 (Hooks)** 控制平面（详见 `AGENTS.md`）。在任务执行周期中，Agent 必须通过以下控制节点：
@@ -111,12 +112,19 @@ description: "医疗 AI领域的专业调研播报引擎。"
 [总结哪些临床/技术模式是被上述多篇论文独立验证的]
 
 ## 科研审计追踪 (Research Audit Trace)
-### 实证洞察与待解假设 (Empirical Insights & Hypotheses)
-- [ ] **待验证项**: [具体研究点]
-- [ ] **核心假设**: [当前对此方向的初步判断]
-### 技术演进趋势预警 (Technical Inflexion Point Radar)
-- **核心词云**: `[关键词1]` `[关键词2]`
-- **活跃机构**: [机构 A], [机构 B]
+### 现有共识与知识边界 (Consensus & Knowledge Frontiers)
+[针对本次检索课题得出的阶段性核心结论]
+### 验证性证据 (Verified Empirical Evidence)
+- [核心发现结论] — [[来源]](链接)
+### 未决科学问题 (Unsolved Scientific Questions)
+- [ ] [尚未找到确切答案或需要进一步验证的子问题]
+### 证据来源矩阵 (Evidence Source Matrix)
+| 来源 (Source) | 核心发现 (Key Finding) | 可信度 (Credibility) | 备注 (Notes) |
+|--------|-------------|-------------|-------|
+### 检索审计溯源 (Search Audit Trail)
+[记录 Queries 及命中情况]
+### 后续科研演进建议 (Future Research Trajectories)
+[AI 或研究员后续建议行动]
 
 ## 局限性与留白 (Limitations)
 [客观申明本次调研内这些研究依然没有解决的问题]
@@ -179,12 +187,19 @@ description: "医疗 AI领域的专业调研播报引擎。"
 - [提炼各文献中采用的最佳数据处理手段或评测指标]
 
 ## 科研审计追踪 (Research Audit Trace)
-### 实证洞察与待解假设 (Empirical Insights & Hypotheses)
-- [ ] **待验证项**: [具体研究点]
-- [ ] **核心假设**: [当前对此方向的初步判断]
-### 技术演进趋势预警 (Technical Inflexion Point Radar)
-- **核心词云**: `[关键词1]` `[关键词2]`
-- **活跃机构**: [机构 A], [机构 B]
+### 现有共识与知识边界 (Consensus & Knowledge Frontiers)
+[针对本次检索课题得出的阶段性核心结论]
+### 验证性证据 (Verified Empirical Evidence)
+- [核心发现结论] — [[来源]](链接)
+### 未决科学问题 (Unsolved Scientific Questions)
+- [ ] [尚未找到确切答案或需要进一步验证的子问题]
+### 证据来源矩阵 (Evidence Source Matrix)
+| 来源 (Source) | 核心发现 (Key Finding) | 可信度 (Credibility) | 备注 (Notes) |
+|--------|-------------|-------------|-------|
+### 检索审计溯源 (Search Audit Trail)
+[记录 Queries 及命中情况]
+### 后续科研演进建议 (Future Research Trajectories)
+[AI 或研究员后续建议行动]
 
 ## 方案局限性评估 (Vulnerability Check)
 [基于各篇论文的 Limitations 综合分析这套组合方案潜在的失效点]
