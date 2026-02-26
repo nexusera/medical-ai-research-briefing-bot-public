@@ -37,7 +37,7 @@ description: "医疗 AI领域的专业调研播报引擎。"
 <thinking>
   <state>Assets loading status (CLAUDE.md, SOUL.md, TOOLS.md, AGENTS.md)</state>
   <intent_analysis>Request intent [Recency / Related]. Constraints set to [X].</intent_analysis>
-  <resolution_route>Select Route: [Mode A: Broad Synthesis (简报)] OR [Mode B: Solution-Oriented Flash (近报)]</resolution_route>
+  <resolution_route>Select Route: [Mode A: 高级学术综述 (Broad Synthesis)] OR [Mode B: 高级前沿快报 (Solution-Oriented Flash)]</resolution_route>
   <tool_results_check>Found X papers. Filtering out commercial noise...</tool_results_check>
   <paper_analysis id="1">
     <title>Original Paper Title</title>
@@ -51,7 +51,8 @@ description: "医疗 AI领域的专业调研播报引擎。"
     <RelatedContext>Find related non-time-bound context from memory/search...</RelatedContext>
   </paper_analysis>
   ...
-  <format_check>Confirming first character will be '# 🏥 高级学术综述 (Advanced Academic Review):'</format_check>
+  <expression_check>Ensuring clear and direct language. No metaphors/analogies. Anchored to papers.</expression_check>
+  <format_check>Confirming first characters will be '# 🏥 高级学术综述' OR '# ⚡ 高级前沿快报'</format_check>
 </thinking>
 ```
 
