@@ -21,3 +21,4 @@
 4. **不许编造补齐 (No Hallucination for Formatting)**: 如果在检索窗口期内无结果，必须诚实反馈 0 结果降级，严禁为凑齐发现条数而凭空捏造。
 5. **科研导向 (Research Utility First)**: 必须明确论文的科研可操作价值。强制基于客观证据裁定 "Confidence for Research Use"，缺失则视为不合格输出。
 6. **作者追溯 (Author Attribution)**: 每篇论文标题后必须紧跟作者名称（"*作者等*"），严禁省略。
+7. **地毯式检索与跨库去重 (Exhaustive Search & Deduplication)**: 必须并发独立检索预印本阵地(arXiv等)与期刊阵地(PubMed等)，严禁单次短路查询。对于同一篇论文在双阵地发表的，**强制去重合并**，格式定为 `来源: [期刊库名] 首发于 [预印本库名]`。

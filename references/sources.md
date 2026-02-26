@@ -13,6 +13,26 @@
 
 ---
 
+## 0. Mandatory Execution Protocol: Matrix Search & Deduplication
+
+**⚠️ 强制全源地毯式检索与去重 (Exhaustive Matrix Search)**
+* **平行查询拦截 (No Short-Circuit)**: 严禁使用单一 `site:` 过滤词一次性完成检索或搜到几篇就停止。必须**并发或循环调用** WebSearch，确保【预印本阵地 (arXiv/medRxiv)】和【权威期刊阵地 (PubMed/Nature等)】都被独立覆盖。
+* **跨库身份识别与去重 (Cross-Database Deduplication)**: 合并阶段必须自我审视。若预印本文献已在期刊发表（作者与核心机制高度重合），**严禁分列两条**，必须强行合并为一张 Paper Card。格式标定为：`来源: [期刊名/PubMed] 首发于 [预印本库]`。
+
+## 0.5. Source-Specific Extraction Tactics
+
+* **Tactic 1: Pre-prints (arXiv / medRxiv)**
+    * *主攻*: 最新算法架构、开源代码/权重、数据集清洗脚本。
+    * *捷径*: 直接正则扫描首尾 `github.com` 等链接及 `Implementation Details` 锁定 ✅ `What you can reuse`。在 `Our Contributions` 抓取 `Core contribution`。
+* **Tactic 2: Medical Databases (PubMed)**
+    * *主攻*: 结构化定量数据与试验结果。
+    * *捷径*: 跳过铺垫，锁定 `RESULTS:` 标签获取 `Key Evidence` (如 F1, CI)。看 `CONCLUSIONS:` 最后一句提炼 `Verdict`。
+* **Tactic 3: Top Tier Journals (Nature / The Lancet etc.)**
+    * *主攻*: 真实世界缺陷与批判性评价。
+    * *捷径*: 直接拉到底部 `Discussion / Limitations` 抓取最致命的 ⚠️ `Failure boundary`。读 `Introduction` 末段抓取 `Why you should care`。
+
+---
+
 ## I. MDT（多学科会诊 / 临床决策支持）
 
 ### Primary Sources

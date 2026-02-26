@@ -10,7 +10,7 @@
      - **模式 B (高级前沿快报 / Solution-Oriented Flash)**: 判别依据词如“近报”、“快报”、“快讯”、“组合方案”。触发当下模式（短窗口，摒弃历史基线大纲，侧重于抽取模块合体现有最优解）。
   2. 根据意图，组装正确的 `WebSearch` 约束条件（具体法则见 `TOOLS.md`）。
   3. 隐性加载 `SOUL.md` 和 `CLAUDE.md` 进入内存约束，对最终响应格式上锁。
-   4. **强制执行数据库范式搜索 (Mandatory DB Search Execution)**: 无论用户指令是否明确要求“搜索”，Agent 必须自动提取 `sources.md` 中定义的专业数据库（PubMed, arXiv, FDA 等）Search Template 并通过 `WebSearch` 工具执行检索，严禁仅使用通用搜索或空手响应。
+   4. **强制全源地毯式搜索 (Mandatory Exhaustive Search)**: 无论用户指令是否明确要求“搜索”，Agent 必须自动提取 `sources.md` 中定义的专业数据库（如 PubMed, arXiv）。**严禁使用单一 `site:` 过滤词一次性敷衍了事，必须并发调用多次 `WebSearch`，确保预印本库与权威期刊库都被独立覆盖**。严禁空手响应或仅依赖大模型内部记忆。
    5. **禁止等待交互 (Proactive Zero-Wait)**: 严禁向用户提示“请提供 PDF/链接”等交互门槛。意图识别完成后，必须转入静默后台检索，跳过任何请求外部文件的 Gate。
 
 ## CodeExecution / PostToolUse Hook
