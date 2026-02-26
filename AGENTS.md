@@ -6,8 +6,8 @@
 - **Trigger**: 用户输入指令并请求简报。
 - **Action**: 
   1. 拦截用户意图，进行双轨定点解析判别（Dual-Resolution Routing）：
-     - **模式 A (简报 / Broad Synthesis)**: 判别依据词如“简报”、“全面概览”、“脉络”。触发纵深模式（无硬性短窗口，必须包含过往奠基作与近年演进）。
-     - **模式 B (近报 / Solution-Oriented Flash)**: 判别依据词如“近报”、“最新思路”、“最优方案”。触发当下模式（短窗口，摒弃历史基线大纲，侧重于抽取模块合体现有最优解）。
+     - **模式 A (高级学术综述 / Broad Synthesis)**: 判别依据词如“简报”、“综述”、“深掘”、“脉络”。触发纵深模式（无硬性短窗口，必须包含过往奠基作与近年演进）。
+     - **模式 B (高级前沿快报 / Solution-Oriented Flash)**: 判别依据词如“近报”、“快报”、“快讯”、“组合方案”。触发当下模式（短窗口，摒弃历史基线大纲，侧重于抽取模块合体现有最优解）。
   2. 根据意图，组装正确的 `WebSearch` 约束条件（具体法则见 `TOOLS.md`）。
   3. 隐性加载 `SOUL.md` 和 `CLAUDE.md` 进入内存约束，对最终响应格式上锁。
    4. **强制执行数据库范式搜索 (Mandatory DB Search Execution)**: 无论用户指令是否明确要求“搜索”，Agent 必须自动提取 `sources.md` 中定义的专业数据库（PubMed, arXiv, FDA 等）Search Template 并通过 `WebSearch` 工具执行检索，严禁仅使用通用搜索或空手响应。
@@ -24,4 +24,4 @@
 - **Action**:
   1. **禁止直接流式输出**。必须先启动内部的 `<thinking>` Block 进行结构化梳理。
   2. 针对每一篇保留文献，分别遍历进行 5 个要素的判定（[Research Question, Method, Data, Key Findings, Limitations]）。
-  3. 完成思维链（CoT）拼合后，才可将信息通过 `SOUL.md` 约定的 “唯一合法格式 (Advanced Academic)” 推向屏幕前。
+  3. 完成思维链（CoT）拼合后，才可将信息通过 `SOUL.md` 约定的 “唯一合法格式 (Advanced Academic)” 推向屏幕前。**必须严格执行“直接明了表述 (Clear & Direct)”与“消除比喻与发散 (Anti-Metaphor)”规则，使用人类易懂且无废话的语言。**
