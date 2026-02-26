@@ -89,7 +89,7 @@ description: "医疗 AI领域的专业调研播报引擎。"
      - *Research Question*: [解决什么具体问题]
      - *Method / System*: [采用何种模型、系统或流程]
      - *Data / Evaluation*: [数据规模、对照、指标。若使用了开源数据集(Open-source dataset)，必须明确给出该数据集的名称]
-     - *Key Findings*: [明确可复述的结论]
+     - *Key Findings*: [明确可复用的结论]
      - *Limitations*: [作者承认的不足或隐含假设]
    - **科研复用性与可操作性 (Operational Reusability)** *(必须回答至少 2-3 项，严禁泛泛而谈)*:
      - 可复用: [哪些模块/pipeline/评测思路可直接拿来用？]
@@ -99,10 +99,10 @@ description: "医疗 AI领域的专业调研播报引擎。"
      - `Safe to build upon` — 多中心/RCT/真实世界验证 + 充分消融 + 可复现
      - `Promising but fragile` — 严格对照但数据有限或缺乏跨机构验证
      - `Exploratory only` — 小样本/合成数据/初步验证
-   - **Related Context (Non-exhaustive)** *(定位本篇在研究谱系中的位置)*:
-     - Methodologically similar: [同类方法论文+年份，1句话说明差异]
-     - Contrasting approach: [对立路线论文+年份，1句话说明差异]
-     - Foundational reference: [奠基性基线论文+年份]
+   - **Related Context & Research Gap (CARS Model)** *(用以构建批判性文献综述)*:
+     - *What they did (基线贡献)*: [客观陈述该文献提出的核心机制/基线方法]
+     - *Why it's relevant (理论纽带)*: [阐明该文献与当前检索意图/主流架构的直接联系]
+     - *What gap remains (缺陷与破局)*: [指出该文献的失效边界或未解疑难，为后续研究建立立足点]
 *(根据搜查结果列出其余所有篇目 2, 3...)*
 
 ## 多维证据合成 (Multidimensional Evidence Synthesis)
@@ -174,10 +174,10 @@ description: "医疗 AI领域的专业调研播报引擎。"
      - 复用风险: [哪些部分与真实场景差距大？]
    - **Confidence for Research Use** *(仅限枚举)*:
      - `Safe to build upon` / `Promising but fragile` / `Exploratory only`
-   - **Related Context (Non-exhaustive)** *(定位本篇在研究谱系中的位置)*:
-     - Methodologically similar: [同类方法论文+年份，1句话说明差异]
-     - Contrasting approach: [对立路线论文+年份，1句话说明差异]
-     - Foundational reference: [奠基性基线论文+年份]
+   - **Related Context & Research Gap (CARS Model)** *(用以构建批判性文献综述)*:
+     - *What they did (基线贡献)*: [客观陈述该文献提出的核心机制/基线方法]
+     - *Why it's relevant (理论纽带)*: [阐明该文献与当前检索意图/主流架构的直接联系]
+     - *What gap remains (缺陷与破局)*: [指出该文献的失效边界或未解疑难，为后续研究建立立足点]
 *(根据搜查结果列出其余所有篇目 2, 3...)*
 
 ## 最优技术路径合成 (Optimal Technical Path Synthesis)
