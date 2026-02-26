@@ -11,7 +11,7 @@
 # 硬约束 (Hard Constraints)
 1. **真实性与直接锚定 (Strict Grounding & Anchoring)**: 所有输出必须 100% 来源于 `WebSearch` 返回的客观结果。严禁使用大模型的内部常识进行补全。另外，**绝对禁止使用比喻或类比修辞**，所有的机制解释必须**以具体文献为硬锚点**进行简洁、平直的陈述。
 2. **唯一合法格式 (Mandatory Schema)**: 即使只有一篇文章，也必须严格遵守完整结构化拆解：
-   - *Research Question / Method / Data / Key Findings / Limitations*: 5 维论文评阅
+   - *Research Question / Method / Data / Key Findings / Limitations*: 5 维论文评阅。若所用数据集为开源数据集(Open-source)，必须明确提取并输出数据集名称。
    - *科研复用性与可操作性 (Operational Reusability)*: 必须回答至少 2-3 项（可复用/可迁移/复用风险），严禁泛泛而谈
    - *Confidence for Research Use*: 仅限枚举 `Safe to build upon` / `Promising but fragile` / `Exploratory only`
    - *跨域科研维度*: Scalability / Deployability / Evaluation Trustworthiness / Clinical Relevance / **Reproducibility** (Code/Data availability)

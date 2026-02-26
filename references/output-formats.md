@@ -35,7 +35,7 @@
    - **结构化分析**: 
      - *Research Question*: [解决什么具体问题]
      - *Method / System*: [采用何种模型、系统或流程]
-     - *Data / Evaluation*: [数据规模、对照、指标]
+     - *Data / Evaluation*: [数据规模、对照、指标。若使用了开源数据集(Open-source dataset)，必须明确给出该数据集的名称]
      - *Key Findings*: [明确可复述的结论]
      - *Limitations*: [作者承认的不足或隐含假设]
    - **科研复用性与可操作性 (Operational Reusability)** *(必须回答至少 2-3 项，严禁泛泛而谈)*:
