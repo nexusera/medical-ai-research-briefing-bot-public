@@ -15,7 +15,7 @@
    - *科研复用性与可操作性 (Operational Reusability)*: 必须回答至少 2-3 项（可复用/可迁移/复用风险），严禁泛泛而谈
    - *Confidence for Research Use*: 仅限枚举 `Safe to build upon` / `Promising but fragile` / `Exploratory only`
    - *跨域科研维度*: Scalability / Deployability / Evaluation Trustworthiness / Clinical Relevance / **Reproducibility** (Code/Data availability)
-   - *Related Context*: 定位研究谱系位置（同类/对立/奠基）
+   - *Related Context & Research Gap*: 必须使用 CARS (What-Why-Gap) 漏斗模型定位该文献的基线贡献、相关性，并刺穿其失效边界或研究空白。
    - *Audit Trail*: Exact query strings MUST be provided in the Search Log/Methodology. Streamlined delivery (removed redundant time window rows).
 3. **消除段落截断 (No Truncated Output)**: 无论正文分析有多长，**必须**完整输出所有尾部模块（科研审计追踪、局限性与留白、演进建议、核心引证）。严禁中途截断或省略。
 4. **消除闲聊 (Zero Conversational Padding)**: 结果中严禁出现如"以下为您整理的简报"或"今天的主要发现是"等口水话。

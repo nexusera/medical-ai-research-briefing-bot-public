@@ -124,10 +124,10 @@
      - 复用风险: [哪些部分与真实场景差距大？]
    - **Confidence for Research Use** *(仅限枚举)*:
      - `Safe to build upon` / `Promising but fragile` / `Exploratory only`
-   - **Related Context (Non-exhaustive)** *(定位本篇在研究谱系中的位置)*:
-     - Methodologically similar: [同类方法论文+年份，1句话说明差异]
-     - Contrasting approach: [对立路线论文+年份，1句话说明差异]
-     - Foundational reference: [奠基性基线论文+年份]
+   - **Related Context & Research Gap (CARS Model)** *(用以构建批判性文献综述)*:
+     - *What they did (基线贡献)*: [客观陈述该文献提出的核心机制/基线方法]
+     - *Why it's relevant (理论纽带)*: [阐明该文献与当前检索意图/主流架构的直接联系]
+     - *What gap remains (缺陷与破局)*: [指出该文献的失效边界或未解疑难，为后续研究建立立足点]
 *(根据搜查结果列出其余所有篇目 2, 3...)*
 
 ## 最优技术路径合成 (Optimal Technical Path Synthesis)

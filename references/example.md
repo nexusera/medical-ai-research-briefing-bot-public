@@ -42,10 +42,10 @@
      - 可迁移: 针对 MIMIC-III 构造截断噪声的脚本具有极高的基准复现价值。
      - 复用风险: 对于完全手写的非结构化病历，其 NAT 权重可能失效。
    - **Confidence for Research Use**: `Promising but fragile`
-   - **Related Context (Non-exhaustive)**:
-     - Methodologically similar: [Wang et al. (2024) 提出的 Character-level Robust Transformer]
-     - Contrasting approach: [依靠外部大模型进行纠错再抽取的 Pipeline 路线]
-     - Foundational reference: [BERT 时代的 Subword 鲁棒性研究]
+   - **Related Context & Research Gap (CARS Model)** *(用以构建批判性文献综述)*:
+     - *What they did (基线贡献)*: 证明了基于失真特征的端到端预训练能在重度噪声下维持实体召回。
+     - *Why it's relevant (理论纽带)*: 这是本医疗 OCR 评测场景中“被动防御 (NAT)”的重要实证支撑。
+     - *What gap remains (缺陷与破局)*: 未探索像素级极限破坏下的表征崩塌区，单纯 NAT 策略在极高错误率场景下存在不可逾越的天花板。
 
 2. **[Hybrid Approaches for NER in Noisy OCR Medical Records](https://journalijsra.com/content/2025/01/21/hybrid-ner-medical)** — *Chen et al.* (来源: [Journal of IJSRA], [2025])
    - **标签**: `[方向: OCR]` `[机制: 规则引擎 / 混合系统]`
@@ -60,9 +60,10 @@
      - 可复用: 提供的医学字典匹配引擎具有高度落地性。
      - 复用风险: 神经模型侧缺乏迁移能力，不推荐作为纯算法基线。
    - **Confidence for Research Use**: `Exploratory only`
-   - **Related Context (Non-exhaustive)**:
-     - Methodologically similar: [结合 UMLS 词典的混合 NER 系统]
-     - Foundational reference: [经典的临床规则引擎 cTAKES]
+   - **Related Context & Research Gap (CARS Model)** *(用以构建批判性文献综述)*:
+     - *What they did (基线贡献)*: 证明了“专家规则词典+神经网络”双向架构能硬性纠正医疗缩写的字面扭曲。
+     - *Why it's relevant (理论纽带)*: 为本报告主张的“混合纠错兜底”提供了真实数据的有效性验证。
+     - *What gap remains (缺陷与破局)*: 高昂的规则维保成本使其失去了面对罕见专科术语的长尾泛化能力。
 
 *(此处省略其余论文列表...)*
 
