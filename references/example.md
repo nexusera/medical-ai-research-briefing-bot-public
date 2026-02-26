@@ -120,29 +120,34 @@
 ## 实证证据与发现 (Empirical Evidence & Findings)
 
 1. **[Development of RAG-based LLM for drug-induced liver injury](https://doi.org/10.1097/hc9.0000000000000451)** — *Smith et al.* (来源: [Hepatology Communications], [2026])
-   - **标签**: `[方向: 临床决策支持]` `[机制: RAG + BioBERT 检索 + 分段加权]`
-   - **跨域科研维度**: `[Scalability: High]` `[Deployability: High]` `[Evaluation Trustworthiness: High]` `[Clinical Relevance: High]` `[Reproducibility: Code+Data]`
-   - **结构化分析**: 
-     - *Research Question*: 验证 RAG 架构能否将 LiverTox 静态知识库转化为动态临床决策工具。
-     - *Method / System*: 构建 LiverTox 向量索引（8759 片段），采用“药物优先 + 语义加权”双规检索。
-     - *Key Findings*: 相比 Zero-shot，RAG 架构显著提升了临床可答性，尤其在罕见药物性肝损伤 (DILI) 判断上表现优异。
-     - *Limitations*: 验证题量有限，尚需跨机构真实病历验证。
-   - **科研复用性与可操作性 (Operational Reusability)**:
-     - 可复用: 药物优先检索加权逻辑可直接迁移至院内处方审核系统。
-     - 复用风险: 对非 LiverTox 覆盖的非典型肝毒性药物识别不足。
-   - **Confidence for Research Use**: `Safe to build upon`
+   *(置信度: `Safe to build upon` | 标签: `[方向: 临床决策支持]` `[机制: RAG + BioBERT] `)*
+
+   > **Verdict**: 这是一套可直接落地至院内处方审核系统的高价值架构，但在罕见肝毒性药物覆盖上存在盲区。
+
+   - **Why you should care**: 探索了如何将诸如 LiverTox 这样的静态药典死知识，低成本地转化为动态、实时的临床问答决策工具。
+   - **Core contribution (One-Thing)**: 提出“药物优先 + 语义加权”的双轨 RAG 检索管线，有效平滑了专科文本提取中的语义断崖。
+   - ---
+   - ✅ **What you can reuse (实验方法与思路)**: 其定制的药物优先加权检索策略可直接套用于其他单病种指南的 RAG 建设。
+   - ⚠️ **Failure boundary**: 对于非 LiverTox 明确收录的非典型肝毒性药物（或者未标明药物成分的中成药），检索器会完全哑火导致大模型胡编。
+   - ---
+   - 💽 **Data & Code Availability**: 构建了含 8759 个片段的 LiverTox 向量索引（Public 开源）。代码库已开源：https://github.com/example/rag-livertox。
+   - 📊 **Baseline & Evidence**: 相比于直接输入提示词的 Zero-shot 方案，外挂双轨 RAG 的决策可答性与事实准确率均大幅提升。
+   - **CARS Context**: 本项目证明了在专科小模型无法承担高昂微调成本时，利用轻量化双轨 RAG 挂载公立数据库是一条兼具经济性与安全性的破局之路。
 
 2. **[Ontology-grounded knowledge graphs for mitigating hallucinations](https://doi.org/10.1016/j.jbi.2025.104728)** — *Li et al.* (来源: [Journal of Biomedical Informatics], [2025])
-   - **标签**: `[方向: 幻觉抑制]` `[机制: Ontology + GraphRAG]`
-   - **跨域科研维度**: `[Scalability: Med]` `[Deployability: Med]` `[Evaluation Trustworthiness: High]` `[Clinical Relevance: High]` `[Reproducibility: Code only]`
-   - **结构化分析**: 
-     - *Research Question*: 探索知识图谱语义约束能否实质性降低医疗 LLM 的事实性幻觉。
-     - *Method / System*: 采用 RDF/OWL 临床本体作为 Grounding 层，通过对齐节点进行逻辑校验。
-     - *Key Findings*: 准确性与溯源性显著提升，证据链可解释。
-   - **科研复用性与可操作性 (Operational Reusability)**:
-     - 可复用: 本体对齐中间件适合高风险用药场景。
-     - 复用风险: 对动态变化的非标准化指南适应性较慢。
-   - **Confidence for Research Use**: `Promising but fragile`
+   *(置信度: `Promising but fragile` | 标签: `[方向: 幻觉抑制]` `[机制: Ontology + GraphRAG]`)*
+
+   > **Verdict**: 严谨但笨重的强过滤机制，适合重金属级高风险医疗场景（如手术禁忌校验），不适合随性文本生成。
+
+   - **Why you should care**: 针对医疗生成式交互中最大的恐怖点——“看似专业的幻觉（Factuality Hallucination）”——给出了系统级的遏制方案。
+   - **Core contribution (One-Thing)**: 采用 RDF/OWL 临床本体引擎作为中间件拦截层，模型生成的任何医学断言必须先过本体对齐校验。
+   - ---
+   - ✅ **What you can reuse (实验方法与思路)**: 论文中公开的本体约束中间件（Ontology Grounding Layer）可直接作为 LLM 输出的守护节点。
+   - ⚠️ **Failure boundary**: 每次生成都需要高昂的图谱检索算力（延迟大），且对于非标准化的新型指南更新适应性慢于纯语言模型。
+   - ---
+   - 💽 **Data & Code Availability**: 评测数据为自建的 10,000 条医患对话标注 (Private 数据，未开源)。中间件模型权重开源。
+   - 📊 **Baseline & Evidence**: 在事实冲突型测试集中，本体拦截机制使生成幻觉率从 14% 下降至 2.1%。
+   - **CARS Context**: 在纯提示词工程无法根除幻觉的当下，本文通过外部结构化强约束填补了落地医疗 LLM 的信任鸿沟。
 
 *(此处省略其余篇目分析...)*
 

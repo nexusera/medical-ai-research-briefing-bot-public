@@ -149,27 +149,22 @@ description: "医疗 AI领域的专业调研播报引擎。"
 - **评阅架构**: 基于证据驱动的合成 (Paper-first Synthesis)
 
 ## 实证证据与发现 (Empirical Evidence & Findings)
-**⚠️ 格式强制红线：每篇论文必须包含：[标题](真实超链接) — *作者等* (来源, 年份)**
+*(与综述模式高度统一：每篇论文必须完成完整的核心提取分析)*
 
 1. **[论文标题 A](必须是真实超链接)** — *作者A等* (来源: [期刊/平台], [年份])
-   - **标签**: `[方向: OCR等]` `[机制: 具体方法/基线等]`
-   - **跨域科研维度**: `[Scalability: High/Med/Low]` `[Deployability: High/Med/Low]` `[Evaluation Trustworthiness: High/Med/Low]` `[Clinical Relevance: High/Med/Low]` `[Reproducibility: Code+Data/Code only/None]`
-   - **结构化分析**: 
-     - *Research Question*: [解决什么具体问题]
-     - *Method / System*: [采用何种模型、系统或流程]
-     - *Data / Evaluation*: [数据规模、对照、指标。若使用了开源数据集(Open-source dataset)，必须明确给出该数据集的名称]
-     - *Key Findings*: [明确可复述的结论]
-     - *Limitations*: [作者承认的不足或隐含假设]
-   - **科研复用性与可操作性 (Operational Reusability)** *(必须回答至少 2-3 项)*:
-     - 可复用: [哪些模块/pipeline/评测思路可直接拿来用？]
-     - 可迁移: [如果我做 X 方向，这篇能帮我省掉哪一步？]
-     - 复用风险: [哪些部分与真实场景差距大？]
-   - **Confidence for Research Use** *(仅限枚举)*:
-     - `Safe to build upon` / `Promising but fragile` / `Exploratory only`
-   - **Related Context & Research Gap (CARS Model)** *(用以构建批判性文献综述)*:
-     - *What they did (基线贡献)*: [客观陈述该文献提出的核心机制/基线方法]
-     - *Why it's relevant (理论纽带)*: [阐明该文献与当前检索意图/主流架构的直接联系]
-     - *What gap remains (缺陷与破局)*: [指出该文献的失效边界或未解疑难，为后续研究建立立足点]
+   *(置信度: `Safe to build upon` | 标签: `[方向: 临床决策支持等]` `[机制: RAG等]`)*
+
+   > **Verdict**: [一句话判断，必须包含“值/不值 + 条件”。示例：Strong baseline for X, but fails under Y.]
+
+   - **Why you should care**: [1 行：从 Introduction 提取它所解决的处于何种痛点中的现实问题]
+   - **Core contribution (One-Thing)**: [1–2 行：从 Abstract/Method 提取，强制只写一项最核心的实验方法与系统思路]
+   - ---
+   - ✅ **What you can reuse (实验方法与思路)**: [从 Implementation/Methods 提取具体哪一条实验管线/系统思路/代码是可以直接复用的？]
+   - ⚠️ **Failure boundary**: [从 Discussion / Limitations 提取在哪些场景或假设池里它会失效/性能崩塌？这里要求合并作者承认的 Limitations 以及真实落地边界]
+   - ---
+   - 💽 **Data & Code Availability**: [强制查验：提取数据集名称、数据规模及获取权限(开源/私有)；必须抽取代码是否开源及具体链接(如 GitHub)。若文献未提供，必须明确写出“代码/数据未开源”]
+   - 📊 **Baseline & Evidence**: [从 Experiments/Results 提取客观对比摘要：例如相比基线 X，F1 提升 11%。拒绝长句，只展示硬指标支撑]
+   - **CARS Context**: [从 Related Work 提取 What (基线) -> Why (相关) -> Gap (缺陷与破局)。一句话构建批判性学术脉络]
 *(根据搜查结果列出其余所有篇目 2, 3...)*
 
 ## 最优技术路径合成 (Optimal Technical Path Synthesis)

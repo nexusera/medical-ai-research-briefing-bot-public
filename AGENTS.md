@@ -23,5 +23,5 @@
 - **Trigger**: 工具返回有效文献列表，准备给用户生成最终响应前。
 - **Action**:
   1. **禁止直接流式输出**。必须先启动内部的 `<thinking>` Block 进行结构化梳理。
-  2. 针对每一篇保留文献，分别遍历进行 5 个要素的判定（[Research Question, Method, Data, Key Findings, Limitations]）。
+  2. 针对每一篇保留文献，分别遍历进行高密度提取：`Verdict`, `Why you should care`, `Core contribution`, `What you can reuse`, `Data & Code Availability`, `CARS Context`。**严禁回退到老旧的 Research Question / Method / Limitations 切分格式**。
   3. 完成思维链（CoT）拼合后，才可将信息通过 `SOUL.md` 约定的 “唯一合法格式 (Advanced Academic)” 推向屏幕前。**必须严格执行“直接明了表述 (Clear & Direct)”与“消除比喻与发散 (Anti-Metaphor)”规则，使用人类易懂且无废话的语言。**
